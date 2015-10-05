@@ -28,3 +28,5 @@ It adds a "add to cart" button to the editor.
 It adds a complete cart system with order registration, email sending, invoice in PDF, multi-tax, shipping cost, payment by cheque and by bank transfer.
 It can work with other payment plugin (Paypal, Payplug).
 Very usefull and powerfull.
+
+[CMSUno](https://github.com/boiteasite/cmsuno)
