@@ -21,7 +21,7 @@ u::::::::::::::u  n::::n    n::::n  o:::::ooooo:::::o
      \____/           \/    \/            \__/
 </pre>
 
-### Payment ###
+## Payment ##
 
 Allows you to create a small e-commerce site from CKEditor.
 It adds a "add to cart" button to the editor.
@@ -30,3 +30,8 @@ It can work with other payment plugin (Paypal, Payplug).
 Very usefull and powerfull.
 
 [CMSUno](https://github.com/boiteasite/cmsuno)
+
+### Versions ###
+
+* 1.0.1 - 15/11/2015 : ColorPicker
+* 1.0 - 05/10/2015 : First stable version

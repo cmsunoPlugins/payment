@@ -15,6 +15,9 @@ if (isset($_POST['action']))
 		// ********************************************************************************************
 		case 'plugin': ?>
 		<link rel="stylesheet" type="text/css" media="screen" href="uno/plugins/payment/payment.css" />
+		<style>
+		.del{background:transparent url(<?php echo $_POST['udep']; ?>includes/img/close.png) no-repeat center center;cursor:pointer;padding:0 20px;margin-left:10px}
+		</style>
 		<div class="blocForm">
 			<div id="paymentA" class="bouton fr" onClick="f_paymentArchiv();" title="<?php echo _("Archives");?>"><?php echo _("Archives");?></div>
 			<div id="paymentC" class="bouton fr" onClick="f_paymentConfig();" title="<?php echo _("Configure Payment");?>"><?php echo _("Config");?></div>
@@ -164,7 +167,7 @@ if (isset($_POST['action']))
 					</tr>
 					<tr>
 						<td><label><?php echo _("Box color");?></label></td>
-						<td><input type="text" class="input" name="col" id="col" style="width:50px;" /></td>
+						<td><input type="text" class="input color" name="col" id="col" style="width:100px;" /><span class="del" onclick="f_del_payment(this);"></span></td>
 						<td><em><?php echo _("Background color for the cart. HTML format (ex : #9f9f9f). Leave blank for automatic choice.");?></em></td>
 					</tr>
 					<tr>

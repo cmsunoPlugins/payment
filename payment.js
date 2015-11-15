@@ -84,6 +84,7 @@ function f_load_payment(){
 				to=t.options;
 				for(v=0;v<to.length;v++){if(to[v].value==data.ico){to[v].selected=true;v=to.length;}}
 			}
+			jQuery('#paymentConfig .color').colorPicker();
 		});
 	});
 }
@@ -169,6 +170,10 @@ function f_paymentDetail(f,g){
 		if(r.substr(0,1)!='!')jQuery('#paymentDetail').append(r);
 		else f_alert(r);
 	});
+}
+function f_del_payment(f){
+	var g=f.parentNode.firstChild;
+	jQuery(g).parent().empty().append('<input type="text" class="input color" name="col" id="col" style="width:100px;" /><span class="del" onclick="f_del_payment(this);"></span>');
 }
 //
 f_load_payment();f_paymentVente();
