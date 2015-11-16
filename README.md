@@ -33,5 +33,6 @@ Very usefull and powerfull.
 
 ### Versions ###
 
+* 1.0.2 - 16/11/2015 : Fix a bug
 * 1.0.1 - 15/11/2015 : ColorPicker
 * 1.0 - 05/10/2015 : First stable version

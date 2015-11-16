@@ -84,8 +84,8 @@ function f_load_payment(){
 				to=t.options;
 				for(v=0;v<to.length;v++){if(to[v].value==data.ico){to[v].selected=true;v=to.length;}}
 			}
-			jQuery('#paymentConfig .color').colorPicker();
 		});
+		jQuery('#paymentConfig .color').colorPicker();
 	});
 }
 function f_payed_payment(f,g,h,i){
