@@ -21,11 +21,11 @@ if (isset($_GET['a']) && isset($_GET['b']))
 				if($a['mail']==$b[1] && $a['payed']==0)
 					{
 					unlink('../../data/_sdata-'.$sdata.'/_payment/'.$b[0].'.json');
-					$o .= '<h1>'._('The order is canceled').'</h1>';
+					$o .= '<h1>'.T_('The order is canceled').'</h1>';
 					}
-				else $o .= '<h1>'._('Error').'</h1>';
+				else $o .= '<h1>'.T_('Error').'</h1>';
 				}
-			else $o .= '<h1>'._('Error').'</h1>';
+			else $o .= '<h1>'.T_('Error').'</h1>';
 			break;
 			// ********************************************************************************************
 			case 'look':
@@ -44,9 +44,9 @@ if (isset($_GET['a']) && isset($_GET['b']))
 				else if($curr=='GBP') $curr = '£';
 				$q = file_get_contents(dirname(__FILE__).'/../../data/'.$Ubusy.'/site.json'); $b1 = json_decode($q,true);
 				$o .= '<h1 style="text-align:center;"><a href="'.$b1['url'].'">'.$b1['tit'].'</a></h1>';
-				$o .= '<p>'._("Order").' : '.$b[0]. ' - '.date("d/m/Y H:i",$a['time']).'</p>';
-				$o .= '<h3>'._("Order Details").'</h3>';
-				$o .= '<table class="paymentTO"><tr><th>'._("Name").'</th><th>'._("Ref").'</th><th>'._("Price").'</th><th>'._("Tax").'</th><th>'._("Quantity").'</th><th>'._("Tax").'</th><th>'._("Total").'</th></tr>';
+				$o .= '<p>'.T_("Order").' : '.$b[0]. ' - '.date("d/m/Y H:i",$a['time']).'</p>';
+				$o .= '<h3>'.T_("Order Details").'</h3>';
+				$o .= '<table class="paymentTO"><tr><th>'.T_("Name").'</th><th>'.T_("Ref").'</th><th>'.T_("Price").'</th><th>'.T_("Tax").'</th><th>'.T_("Quantity").'</th><th>'.T_("Tax").'</th><th>'.T_("Total").'</th></tr>';
 				foreach($a['prod'] as $r)
 					{
 					$t = getTax($a,$r);
@@ -54,38 +54,38 @@ if (isset($_GET['a']) && isset($_GET['b']))
 					$p += (pt($r['p'])*$r['q']);
 					$tax += ($t*$r['q']);
 					}
-				$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="3" class="paymentTN">'._("Subtotal").' : </td><td>'.$tax.' '.$curr.'</td><td>'.$p.' '.$curr.'</td></tr>';
+				$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="3" class="paymentTN">'.T_("Subtotal").' : </td><td>'.$tax.' '.$curr.'</td><td>'.$p.' '.$curr.'</td></tr>';
 				if(isset($a['ship']))
 					{
-					$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="4" class="paymentTN">'._("Shipping cost").' : </td><td>'.$a['ship'].' '.$curr.'</td></tr>';
+					$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="4" class="paymentTN">'.T_("Shipping cost").' : </td><td>'.$a['ship'].' '.$curr.'</td></tr>';
 					$p += pt($a['ship']);
 					}
-				$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="4" class="paymentTN">'._("Total").' : </td><td style="font-weight:700">'.$p.' '.$curr.'</td></tr>';
+				$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="4" class="paymentTN">'.T_("Total").' : </td><td style="font-weight:700">'.$p.' '.$curr.'</td></tr>';
 				$o .= '</table>';
-				$o .='<h3>'._("Shipping address").'</h3>';
+				$o .='<h3>'.T_("Shipping address").'</h3>';
 				$o .= '<table class="paymentTO">';
 				if($a['name'])
 					{
-					$o .= '<tr><td>'._("Name").' :</td><td>'.$a['name'].'</td></tr>';
-					$o .= '<tr><td>'._("Address").' :</td><td>'.$a['adre'].'</td></tr>';
-					$o .= '<tr><td>'._("Mail").' :</td><td>'.$a['mail'].'</td></tr>';
+					$o .= '<tr><td>'.T_("Name").' :</td><td>'.$a['name'].'</td></tr>';
+					$o .= '<tr><td>'.T_("Address").' :</td><td>'.$a['adre'].'</td></tr>';
+					$o .= '<tr><td>'.T_("Mail").' :</td><td>'.$a['mail'].'</td></tr>';
 					}
 				$o .= '</table>';
-				if($sys=='payment' && isset($a['cv']) && $a['cv']=='cheq') $typ = _("Cheque");
-				else if($sys=='payment' && isset($a['cv']) && $a['cv']=='vire') $typ = _("Bank Transfer");
-				$o .= '<h3 style="text-transform:capitalize;">'._("Payment").' : '.($typ?$typ:$sys).'</h3>';
+				if($sys=='payment' && isset($a['cv']) && $a['cv']=='cheq') $typ = T_("Cheque");
+				else if($sys=='payment' && isset($a['cv']) && $a['cv']=='vire') $typ = T_("Bank Transfer");
+				$o .= '<h3 style="text-transform:capitalize;">'.T_("Payment").' : '.($typ?$typ:$sys).'</h3>';
 				$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
 				$r = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, 'payment', $b[0].'|'.$a['mail'], MCRYPT_MODE_ECB, $iv));
-				if(isset($a['payed']) && !$a['payed']) $o .= '<p>'._("Not paid").'</p>';
+				if(isset($a['payed']) && !$a['payed']) $o .= '<p>'.T_("Not paid").'</p>';
 				else 
 					{
-					$o .= '<p>'._("Paid").'</p>';
-					if(!$a['treated']) $o .= '<p>'._("Not treated").'</p>';
-					else $o .= '<p>'._("Out for delivery").'</p>';
-					$o .= '<p><a href="paymentPdf.php?k='.urlencode($r).'&s='.$sys.'&t=1" target="_blank" title="">'._("Invoice in PDF").'</a></p>';
+					$o .= '<p>'.T_("Paid").'</p>';
+					if(!$a['treated']) $o .= '<p>'.T_("Not treated").'</p>';
+					else $o .= '<p>'.T_("Out for delivery").'</p>';
+					$o .= '<p><a href="paymentPdf.php?k='.urlencode($r).'&s='.$sys.'&t=1" target="_blank" title="">'.T_("Invoice in PDF").'</a></p>';
 					}
 				}
-			else $o .= '<h1>'._('Error').'</h1>';
+			else $o .= '<h1>'.T_('Error').'</h1>';
 			// else {sleep(2);exit;}
 			break;
 			// ********************************************************************************************

@@ -38,28 +38,28 @@ if(isset($q) && $q)
 		$pdf->Ln();
 		$pdf->Cell(170,10,utf8_decode($site),'',0,'C');
 		$pdf->Ln(20); $pdf->SetFont('','',16); 
-		$pdf->Cell(170,10,utf8_decode(_("Invoice")),'',0,'C');
+		$pdf->Cell(170,10,utf8_decode(T_("Invoice")),'',0,'C');
 		$pdf->Ln(20);
 		// 1 ORDER
 		$pdf->SetFont('','B',14);
-		$pdf->Cell(170,10,utf8_decode(_("Order")));
+		$pdf->Cell(170,10,utf8_decode(T_("Order")));
 		$pdf->Ln(10); $pdf->SetFont('','B',10);
-		$pdf->Cell(20,6,utf8_decode(_("Ref")),1,0,'L',true);
+		$pdf->Cell(20,6,utf8_decode(T_("Ref")),1,0,'L',true);
 		$pdf->SetFont('');
 		$pdf->Cell(50,6,$a['id'],1,0,'L',false);
 		$pdf->Ln(); $pdf->SetFont('','B');
-		$pdf->Cell(20,6,utf8_decode(_("Date")),1,0,'L',true);
+		$pdf->Cell(20,6,utf8_decode(T_("Date")),1,0,'L',true);
 		$pdf->SetFont('');
 		$pdf->Cell(50,6,date("d/m/Y H:i",$a['time']),1,0,'L',false);
 		$pdf->Ln(); $pdf->SetFont('','B');
-		$pdf->Cell(20,6,utf8_decode(_("Payment")),1,0,'L',true);
+		$pdf->Cell(20,6,utf8_decode(T_("Payment")),1,0,'L',true);
 		$pdf->SetFont('');
-		$pdf->Cell(50,6,utf8_decode(ucfirst($sys=='payment'?($a['cv']=='cheq'?_("Cheque"):_("Bank Transfer")):$sys)),1,0,'L',false);
+		$pdf->Cell(50,6,utf8_decode(ucfirst($sys=='payment'?($a['cv']=='cheq'?T_("Cheque"):T_("Bank Transfer")):$sys)),1,0,'L',false);
 		// 2. DETAIL
-		$t1 = array(utf8_decode(_("Name")), utf8_decode(_("Ref")), utf8_decode(_("Price")), utf8_decode(_("Tax")), 'Nb', utf8_decode(_("Tax")), utf8_decode(_("Total")));
+		$t1 = array(utf8_decode(T_("Name")), utf8_decode(T_("Ref")), utf8_decode(T_("Price")), utf8_decode(T_("Tax")), 'Nb', utf8_decode(T_("Tax")), utf8_decode(T_("Total")));
 		// Couleurs, épaisseur du trait et police grasse
 		$pdf->Ln(20); $pdf->SetFont('','B',14);
-		$pdf->Cell(170,10,utf8_decode(_("Order Details")));
+		$pdf->Cell(170,10,utf8_decode(T_("Order Details")));
 		$pdf->Ln(10);  $pdf->SetFont('','',10); 
 		$pdf->SetFont('','B');
 		$w = array(50, 25, 20, 20, 10, 20, 25); // 170
@@ -85,33 +85,33 @@ if(isset($q) && $q)
 		// Trait de terminaison
 		$pdf->Cell(array_sum($w),0,'','T');
 		$pdf->Ln();
-		$pdf->Cell($w[0]+$w[1]+$w[2]+$w[3]+$w[4],6,utf8_decode(_("Subtotal")),'',0,'R');
+		$pdf->Cell($w[0]+$w[1]+$w[2]+$w[3]+$w[4],6,utf8_decode(T_("Subtotal")),'',0,'R');
 		$pdf->Cell($w[5],6,$tax.' '.$curr,'LRB',0,'R');
 		$pdf->Cell($w[6],6,$p.' '.$curr,'LRB',0,'R');
 		if($ship)
 			{
 			$pdf->Ln();
-			$pdf->Cell($w[0]+$w[1]+$w[2]+$w[3]+$w[4]+$w[5],6,utf8_decode(_("Shipping cost")),'',0,'R');
+			$pdf->Cell($w[0]+$w[1]+$w[2]+$w[3]+$w[4]+$w[5],6,utf8_decode(T_("Shipping cost")),'',0,'R');
 			$pdf->Cell($w[6],6,$ship.' '.$curr,'LRB',0,'R');
 			$p += pt($ship);
 			}
 		$pdf->Ln();
-		$pdf->Cell($w[0]+$w[1]+$w[2]+$w[3]+$w[4]+$w[5],6,utf8_decode(_("Total")),'',0,'R');
+		$pdf->Cell($w[0]+$w[1]+$w[2]+$w[3]+$w[4]+$w[5],6,utf8_decode(T_("Total")),'',0,'R');
 		$pdf->SetFont('','B');
 		$pdf->Cell($w[6],6,$p.' '.$curr,'LRB',0,'R');
 		// 3. SHIPPING
 		$pdf->Ln(20); $pdf->SetFont('','B',14);
-		$pdf->Cell(170,10,utf8_decode(_("Shipping address")));
+		$pdf->Cell(170,10,utf8_decode(T_("Shipping address")));
 		$pdf->Ln(10); $pdf->SetFont('','B',10);
-		$pdf->Cell(30,6,utf8_decode(_("Name")),1,0,'L',true);
+		$pdf->Cell(30,6,utf8_decode(T_("Name")),1,0,'L',true);
 		$pdf->SetFont('');
 		$pdf->Cell(140,6,utf8_decode($a['name']),1,0,'L',false);
 		$pdf->Ln(); $pdf->SetFont('','B');
-		$pdf->Cell(30,6,utf8_decode(_("Address")),1,0,'L',true);
+		$pdf->Cell(30,6,utf8_decode(T_("Address")),1,0,'L',true);
 		$pdf->SetFont('');
 		$pdf->Cell(140,6,utf8_decode($a['adre']),1,0,'L',false);
 		$pdf->Ln(); $pdf->SetFont('','B');
-		$pdf->Cell(30,6,utf8_decode(_("Mail")),1,0,'L',true);
+		$pdf->Cell(30,6,utf8_decode(T_("Mail")),1,0,'L',true);
 		$pdf->SetFont('');
 		$pdf->Cell(140,6,utf8_decode($a['mail']),1,0,'L',false);
 		$pdf->Ln();
@@ -119,7 +119,7 @@ if(isset($q) && $q)
 		// 4. FOOTER
 		$pdf->SetY(-30);
 		$pdf->SetFont('','',10); $pdf->SetTextColor(60);
-		$pdf->Cell(170,6,utf8_decode(_('Thank you for your trust.').' '.$site.' - '.$url),'',0,'C');
+		$pdf->Cell(170,6,utf8_decode(T_('Thank you for your trust.').' '.$site.' - '.$url),'',0,'C');
 		$pdf->Output('facture.pdf','D');
 		}
 	else if($_GET['t']==2) // BON DE LIVRAISON

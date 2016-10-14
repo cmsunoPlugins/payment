@@ -5,7 +5,7 @@ function getPaypalOrder($id,$sdata)
 	$b = array(); $v=1; $w = 0;
 	while(isset($a['item_name'.$v]))
 		{
-		if($a['item_name'.$v]!=_('Shipping cost'))
+		if($a['item_name'.$v]!=T_('Shipping cost'))
 			{
 			$b['prod'][$w]['n'] = $a['item_name'.$v];
 			$b['prod'][$w]['p'] = (isset($a['mc_gross_'.$v])?$a['mc_gross_'.$v]:0);

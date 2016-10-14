@@ -19,169 +19,169 @@ if (isset($_POST['action']))
 		.del{background:transparent url(<?php echo $_POST['udep']; ?>includes/img/close.png) no-repeat center center;cursor:pointer;padding:0 20px;margin-left:10px}
 		</style>
 		<div class="blocForm">
-			<div id="paymentA" class="bouton fr" onClick="f_paymentArchiv();" title="<?php echo _("Archives");?>"><?php echo _("Archives");?></div>
-			<div id="paymentC" class="bouton fr" onClick="f_paymentConfig();" title="<?php echo _("Configure Payment");?>"><?php echo _("Config");?></div>
-			<div id="paymentV" class="bouton fr current" onClick="f_paymentVente();" title="<?php echo _("Orders");?>"><?php echo _("Orders");?></div>
-			<div id="paymentD" class="bouton fr current" title="<?php echo _("Order Details");?>" style="display:none;"><?php echo _("Order Details");?></div>
-			<h2><?php echo _("Payment and Cart");?></h2>
+			<div id="paymentA" class="bouton fr" onClick="f_paymentArchiv();" title="<?php echo T_("Archives");?>"><?php echo T_("Archives");?></div>
+			<div id="paymentC" class="bouton fr" onClick="f_paymentConfig();" title="<?php echo T_("Configure Payment");?>"><?php echo T_("Config");?></div>
+			<div id="paymentV" class="bouton fr current" onClick="f_paymentVente();" title="<?php echo T_("Orders");?>"><?php echo T_("Orders");?></div>
+			<div id="paymentD" class="bouton fr current" title="<?php echo T_("Order Details");?>" style="display:none;"><?php echo T_("Order Details");?></div>
+			<h2><?php echo T_("Payment and Cart");?></h2>
 			<div id="paymentConfig" style="display:none;">
-				<p><?php echo _("This plugin allows to use one or more payment system. It also adds a cart system.");?>
-				<?php echo _("Bank transfer and check included. Other payments systems require specific plugins (Paypal...).");?></p>
-				<p><?php echo _("This plugin also add an 'add to cart' button") .'<img src="uno/plugins/payment/addtocart/icons/addtocart.png" style="border:1px solid #aaa;padding:3px;margin:0 6px -5px;border-radius:2px;" />' . _("in the text editor.").'&nbsp;'. _("It's very practical to put on sale some articles from the text editor."); ?></p>
-				<p><?php echo _("To use this button and the cart system, you have to add the shortcode");?>&nbsp;<code>[[paymentCart]]</code>&nbsp;<?php echo _("in your page or in the template. That will display the cart content."); ?></p>
-				<h3><?php echo _("Active payment :");?></h3>
+				<p><?php echo T_("This plugin allows to use one or more payment system. It also adds a cart system.");?>
+				<?php echo T_("Bank transfer and check included. Other payments systems require specific plugins (Paypal...).");?></p>
+				<p><?php echo T_("This plugin also add an 'add to cart' button") .'<img src="uno/plugins/payment/addtocart/icons/addtocart.png" style="border:1px solid #aaa;padding:3px;margin:0 6px -5px;border-radius:2px;" />' . T_("in the text editor.").'&nbsp;'. T_("It's very practical to put on sale some articles from the text editor."); ?></p>
+				<p><?php echo T_("To use this button and the cart system, you have to add the shortcode");?>&nbsp;<code>[[paymentCart]]</code>&nbsp;<?php echo T_("in your page or in the template. That will display the cart content."); ?></p>
+				<h3><?php echo T_("Active payment :");?></h3>
 				<table class="hForm">
 					<tr>
-						<td><label><?php echo _("Paypal");?></label></td>
+						<td><label><?php echo T_("Paypal");?></label></td>
 						<td><input type="checkbox" class="input" name="pml" id="pml" /></td>
-						<td><em><?php echo _("Paypal Plugin needed. EXT mode must be activated.");?></em></td>
+						<td><em><?php echo T_("Paypal Plugin needed. EXT mode must be activated.");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Payplug");?></label></td>
+						<td><label><?php echo T_("Payplug");?></label></td>
 						<td><input type="checkbox" class="input" name="pmg" id="pmg" /></td>
-						<td><em><?php echo _("Payplug Plugin needed. EXT mode must be activated.");?></em></td>
+						<td><em><?php echo T_("Payplug Plugin needed. EXT mode must be activated.");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Bank Transfer");?></label></td>
+						<td><label><?php echo T_("Bank Transfer");?></label></td>
 						<td><input type="checkbox" class="input" name="pmv" id="pmv" /></td>
-						<td><em><?php echo _("Enable the payment by bank transfer");?></em></td>
+						<td><em><?php echo T_("Enable the payment by bank transfer");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Cheque");?></label></td>
+						<td><label><?php echo T_("Cheque");?></label></td>
 						<td><input type="checkbox" class="input" name="pmc" id="pmc" /></td>
-						<td><em><?php echo _("Enable the payment by cheque");?></em></td>
+						<td><em><?php echo T_("Enable the payment by cheque");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Payment Address");?></label></td>
+						<td><label><?php echo T_("Payment Address");?></label></td>
 						<td><input type="text" class="input" name="pma" id="pma" /></td>
-						<td><em><?php echo _("Cheque only. What name-address should the payment be sent ?");?></em></td>
+						<td><em><?php echo T_("Cheque only. What name-address should the payment be sent ?");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Account owner");?></label></td>
+						<td><label><?php echo T_("Account owner");?></label></td>
 						<td><input type="text" class="input" name="pmo" id="pmo" /></td>
-						<td><em><?php echo _("Cheque and Bank transfer. Cheque payable to (name, society...)");?></em></td>
+						<td><em><?php echo T_("Cheque and Bank transfer. Cheque payable to (name, society...)");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("IBAN");?></label></td>
+						<td><label><?php echo T_("IBAN");?></label></td>
 						<td><input type="text" class="input" name="pmi" id="pmi" /></td>
-						<td><em><?php echo _("Bank transfer only. International Bank Account Number");?></em></td>
+						<td><em><?php echo T_("Bank transfer only. International Bank Account Number");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("BIC");?></label></td>
+						<td><label><?php echo T_("BIC");?></label></td>
 						<td><input type="text" class="input" name="pmb" id="pmb" /></td>
-						<td><em><?php echo _("Bank transfer only. Bank Identification Code");?></em></td>
+						<td><em><?php echo T_("Bank transfer only. Bank Identification Code");?></em></td>
 					</tr>
 				</table>
-				<h3><?php echo _("Tax and shipping :");?></h3>
-				<p><?php echo _("You can create up to 4 fixed or proportional taxes.").' '._("A proportional tax is written with the sign"); ?>&nbsp;<strong style="text-decoration:underline;">%</strong>.</p>
+				<h3><?php echo T_("Tax and shipping :");?></h3>
+				<p><?php echo T_("You can create up to 4 fixed or proportional taxes.").' '.T_("A proportional tax is written with the sign"); ?>&nbsp;<strong style="text-decoration:underline;">%</strong>.</p>
 				<table class="hForm">
 					<tr>
-						<td><label><?php echo _("Tax");?> alpha</label></td>
+						<td><label><?php echo T_("Tax");?> alpha</label></td>
 						<td><input type="text" class="input" name="taa" id="taa" style="width:50px;" />
-						<span style="padding-left:5px;"><?php echo _("Enabled by default"); ?></span><input type="checkbox" name="tda" id="tda" /></td>
-						<td><em><?php echo _("Example : Fixed (0.55$) => 0.55 ; Proportional (19.6%) => 19.6%");?></em></td>
+						<span style="padding-left:5px;"><?php echo T_("Enabled by default"); ?></span><input type="checkbox" name="tda" id="tda" /></td>
+						<td><em><?php echo T_("Example : Fixed (0.55$) => 0.55 ; Proportional (19.6%) => 19.6%");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Tax");?> beta</label></td>
+						<td><label><?php echo T_("Tax");?> beta</label></td>
 						<td><input type="text" class="input" name="tab" id="tab" style="width:50px;" />
-						<span style="padding-left:5px;"><?php echo _("Enabled by default"); ?></span><input type="checkbox" name="tdb" id="tdb" /></td>
+						<span style="padding-left:5px;"><?php echo T_("Enabled by default"); ?></span><input type="checkbox" name="tdb" id="tdb" /></td>
 						<td><em></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Tax");?> gamma</label></td>
+						<td><label><?php echo T_("Tax");?> gamma</label></td>
 						<td><input type="text" class="input" name="tac" id="tac" style="width:50px;" />
-						<span style="padding-left:5px;"><?php echo _("Enabled by default"); ?></span><input type="checkbox" name="tdc" id="tdc" /></td>
+						<span style="padding-left:5px;"><?php echo T_("Enabled by default"); ?></span><input type="checkbox" name="tdc" id="tdc" /></td>
 						<td><em></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Tax");?> delta</label></td>
+						<td><label><?php echo T_("Tax");?> delta</label></td>
 						<td><input type="text" class="input" name="tad" id="tad" style="width:50px;" />
-						<span style="padding-left:5px;"><?php echo _("Enabled by default"); ?></span><input type="checkbox" name="tdd" id="tdd" /></td>
+						<span style="padding-left:5px;"><?php echo T_("Enabled by default"); ?></span><input type="checkbox" name="tdd" id="tdd" /></td>
 						<td><em></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("I enter my prices :");?></label></td>
+						<td><label><?php echo T_("I enter my prices :");?></label></td>
 						<td>
 							<select name="taxin" id="taxin">
-								<option value="yes"><?php echo _("Tax included");?></option>
-								<option value="no"><?php echo _("Duty free");?></option>
+								<option value="yes"><?php echo T_("Tax included");?></option>
+								<option value="no"><?php echo T_("Duty free");?></option>
 							</select>
 						</td>
-						<td><em><?php echo _("When I set the price of an item, the tax is ...");?></em></td>
+						<td><em><?php echo T_("When I set the price of an item, the tax is ...");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Prices displayed :");?></label></td>
+						<td><label><?php echo T_("Prices displayed :");?></label></td>
 						<td>
 							<select name="taxout" id="taxout">
-								<option value="yes"><?php echo _("Tax included");?></option>
-								<option value="no"><?php echo _("Duty free");?></option>
+								<option value="yes"><?php echo T_("Tax included");?></option>
+								<option value="no"><?php echo T_("Duty free");?></option>
 							</select>
 						</td>
-						<td><em><?php echo _("On the site, the price of the item is displayed...");?></em></td>
+						<td><em><?php echo T_("On the site, the price of the item is displayed...");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Shipping cost");?></label></td>
+						<td><label><?php echo T_("Shipping cost");?></label></td>
 						<td><input type="text" class="input" name="shi" id="shi" style="width:50px;" /></td>
-						<td><em><?php echo _("Shipping cost");?>.</em></td>
+						<td><em><?php echo T_("Shipping cost");?>.</em></td>
 					</tr>
 				</table>
-				<h3><?php echo _("Cart :");?></h3>
+				<h3><?php echo T_("Cart :");?></h3>
 				<table class="hForm">
 					<tr>
-						<td><label><?php echo _("Currency");?></label></td>
+						<td><label><?php echo T_("Currency");?></label></td>
 						<td>
 							<select name="cur" id="cur">
-								<option value="EUR"><?php echo _("Euro");?></option>
-								<option value="USD"><?php echo _("US Dollar");?></option>
-								<option value="CAD"><?php echo _("Canadian Dollar");?></option>
-								<option value="GBP"><?php echo _("Pound Sterling");?></option>
-								<option value="CHF"><?php echo _("Swiss Franc");?></option>
-								<option value="DKK"><?php echo _("Danish Krone");?></option>
-								<option value="NOK"><?php echo _("Norwegian Krone");?></option>
-								<option value="SEK"><?php echo _("Swedish Krona");?></option>
-								<option value="PLN"><?php echo _("Polish Zloty");?></option>
-								<option value="RUB"><?php echo _("Russian Ruble");?></option>
+								<option value="EUR"><?php echo T_("Euro");?></option>
+								<option value="USD"><?php echo T_("US Dollar");?></option>
+								<option value="CAD"><?php echo T_("Canadian Dollar");?></option>
+								<option value="GBP"><?php echo T_("Pound Sterling");?></option>
+								<option value="CHF"><?php echo T_("Swiss Franc");?></option>
+								<option value="DKK"><?php echo T_("Danish Krone");?></option>
+								<option value="NOK"><?php echo T_("Norwegian Krone");?></option>
+								<option value="SEK"><?php echo T_("Swedish Krona");?></option>
+								<option value="PLN"><?php echo T_("Polish Zloty");?></option>
+								<option value="RUB"><?php echo T_("Russian Ruble");?></option>
 							</select>
 						</td>
-						<td><em><?php echo _("What is the currency of payment.");?></em></td>
+						<td><em><?php echo T_("What is the currency of payment.");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Integration");?></label></td>
+						<td><label><?php echo T_("Integration");?></label></td>
 						<td>
 							<select name="it" id="it">
-								<option value="shortcode"><?php echo _("Shortcode");?></option>
-								<option value="menu"><?php echo _("Menu");?></option>
+								<option value="shortcode"><?php echo T_("Shortcode");?></option>
+								<option value="menu"><?php echo T_("Menu");?></option>
 							</select>
 						</td>
-						<td><em><?php echo _("Use the shortcode [[paymentCart]] or use auto integration in the menu.");?></em></td>
+						<td><em><?php echo T_("Use the shortcode [[paymentCart]] or use auto integration in the menu.");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Box alignment");?></label></td>
+						<td><label><?php echo T_("Box alignment");?></label></td>
 						<td>
 							<select name="ali" id="ali">
-								<option value="left"><?php echo _("Left");?></option>
-								<option value="right"><?php echo _("Right");?></option>
+								<option value="left"><?php echo T_("Left");?></option>
+								<option value="right"><?php echo T_("Right");?></option>
 							</select>
 						</td>
-						<td><em><?php echo _("Use Right if the cart appears to the right of the window.");?></em></td>
+						<td><em><?php echo T_("Use Right if the cart appears to the right of the window.");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Box color");?></label></td>
+						<td><label><?php echo T_("Box color");?></label></td>
 						<td><input type="text" class="input color" name="col" id="col" style="width:100px;" /><span class="del" onclick="f_del_payment(this);"></span></td>
-						<td><em><?php echo _("Background color for the cart. HTML format (ex : #9f9f9f). Leave blank for automatic choice.");?></em></td>
+						<td><em><?php echo T_("Background color for the cart. HTML format (ex : #9f9f9f). Leave blank for automatic choice.");?></em></td>
 					</tr>
 					<tr>
-						<td><label><?php echo _("Icon color");?></label></td>
+						<td><label><?php echo T_("Icon color");?></label></td>
 						<td>
 							<select name="ico" id="ico">
-								<option value="black"><?php echo _("Black");?></option>
-								<option value="white"><?php echo _("White");?></option>
+								<option value="black"><?php echo T_("Black");?></option>
+								<option value="white"><?php echo T_("White");?></option>
 							</select>
 						</td>
-						<td><em><?php echo _("Color of the cart icon and the text.");?></em></td>
+						<td><em><?php echo T_("Color of the cart icon and the text.");?></em></td>
 					</tr>
 				</table>
-				<div class="bouton fr" onClick="f_save_payment();" title="<?php echo _("Save");?>"><?php echo _("Save");?></div>
+				<div class="bouton fr" onClick="f_save_payment();" title="<?php echo T_("Save");?>"><?php echo T_("Save");?></div>
 			</div>
 			<div id="paymentDetail" style="display:none;"></div>
 			<div id="paymentArchiv" style="display:none;"></div>
@@ -220,12 +220,12 @@ if (isset($_POST['action']))
 		$a['iban'] = $_POST['iban'];
 		$a['bic'] = $_POST['bic'];
 		$out = json_encode($a);
-		if (file_put_contents('../../data/'.$Ubusy.'/payment.json', $out)) echo _('Backup performed');
-		else echo '!'._('Impossible backup');
+		if (file_put_contents('../../data/'.$Ubusy.'/payment.json', $out)) echo T_('Backup performed');
+		else echo '!'.T_('Impossible backup');
 		break;
 		// ********************************************************************************************
 		case 'vente':
-		echo '<h3>'._("List of orders").' :</h3>';
+		echo '<h3>'.T_("List of orders").' :</h3>';
 		echo '<style>
 			#paymentVente table tr{border-bottom:1px solid #888;}
 			#paymentVente table th{text-align:center;padding:5px 2px;font-weight:700;}
@@ -263,7 +263,7 @@ if (isset($_POST['action']))
 		if(count($tab) && is_array($tab))
 			{
 			echo '<br /><table>';
-			echo '<tr><th>'._("Date").' - ID</th><th>'._("Type").'</th><th>'._("Name").'</th><th>'._("Address").'</th><th>'._("Article").'</th><th>'._("Price").'</th><th>'._("Treated").'</th></tr>';
+			echo '<tr><th>'.T_("Date").' - ID</th><th>'.T_("Type").'</th><th>'.T_("Name").'</th><th>'.T_("Address").'</th><th>'.T_("Article").'</th><th>'.T_("Price").'</th><th>'.T_("Treated").'</th></tr>';
 			$b = array();
 			foreach($tab as $r)
 				{
@@ -306,7 +306,7 @@ if (isset($_POST['action']))
 						else echo '<td>'.$r['address_street'].'<br />'.$r['address_zip'].' - '.$r['address_city'].'<br />'.$r['address_state'].' - '.$r['address_country'].'</td>';
 						echo '<td>'.$item.'</td>';
 						echo '<td>'.$r['mc_gross'].' '.($r['mc_currency']=='EUR'?'&euro;':$r['mc_currency']).'</td>';
-						echo '<td '.(!$r['treated']?'onClick="f_treated_payment(this,\''.$r['txn_id'].'\',\''._("Yes").'\',\'paypal\')"':'').($r['treated']?'>'._("Yes"):' class="yesno">'._("Not treated")).'</td>';
+						echo '<td '.(!$r['treated']?'onClick="f_treated_payment(this,\''.$r['txn_id'].'\',\''.T_("Yes").'\',\'paypal\')"':'').($r['treated']?'>'.T_("Yes"):' class="yesno">'.T_("Not treated")).'</td>';
 						echo '</tr>';
 						}
 					else if(isset($r['idTransaction']) && isset($r['customData']) && strpos($r['customData'],'ADRESS|')!==false)
@@ -332,7 +332,7 @@ if (isset($_POST['action']))
 						echo '<td>'.$adr.'</td>';
 						echo '<td>'.$item.'</td>';
 						echo '<td>'.($r['amount']/100).'&euro;</td>';
-						echo '<td '.(!$r['treated']?'onClick="f_treated_payment(this,\''.$r['idTransaction'].'\',\''._("Yes").'\',\'payplug\')"':'').($r['treated']?'>'._("Yes"):' class="yesno">'._("Not treated")).'</td>';
+						echo '<td '.(!$r['treated']?'onClick="f_treated_payment(this,\''.$r['idTransaction'].'\',\''.T_("Yes").'\',\'payplug\')"':'').($r['treated']?'>'.T_("Yes"):' class="yesno">'.T_("Not treated")).'</td>';
 						echo '</tr>';
 						}
 					else if(isset($r['cv']) && isset($r['prod']))
@@ -344,16 +344,16 @@ if (isset($_POST['action']))
 							}
 						echo '<tr'.($r['payed']?($r['treated']?' class="PayTreatedYes"':''):' class="PayNo"').'>';
 						echo '<td>'.(isset($r['time'])?date("dMy H:i", $r['time']):'').'<br /><span style="font-size:.8em;text-decoration:underline;cursor:pointer;" onClick="f_paymentDetail(\''.$r['id'].'\',\'payment\')">'.$r['id'].'</span></td>';
-						if($r['cv']=='cheq') echo '<td>'._('Cheque').'</td>';
-						else if($r['cv']=='vire') echo '<td>'._('Transfer').'</td>';
+						if($r['cv']=='cheq') echo '<td>'.T_('Cheque').'</td>';
+						else if($r['cv']=='vire') echo '<td>'.T_('Transfer').'</td>';
 						else echo '<td>?</td>';
 						echo '<td>'.$r['name'].'<br />'.$r['mail'].'</td>';
 						echo '<td>'.$r['adre'].'</td>';
 						echo '<td>'.$item.'</td>';
 						echo '<td>'.$r['total'].'&euro;</td>';
-						if(!$r['payed']) echo '<td onClick="f_payed_payment(this,\''.$r['id'].'\',\''._("Not treated").'\',\''._("Yes").'\')" class="yesno">'._("Not paid").'</td>';
-						else if(!$r['treated']) echo '<td onClick="f_treated_payment(this,\''.$r['id'].'\',\''._("Yes").'\',\'payment\')" class="yesno">'._("Not treated").'</td>';
-						else echo '<td>'._("Yes").'</td>';
+						if(!$r['payed']) echo '<td onClick="f_payed_payment(this,\''.$r['id'].'\',\''.T_("Not treated").'\',\''.T_("Yes").'\')" class="yesno">'.T_("Not paid").'</td>';
+						else if(!$r['treated']) echo '<td onClick="f_treated_payment(this,\''.$r['id'].'\',\''.T_("Yes").'\',\'payment\')" class="yesno">'.T_("Not treated").'</td>';
+						else echo '<td>'.T_("Yes").'</td>';
 						echo '</tr>';
 						}
 					}
@@ -369,10 +369,10 @@ if (isset($_POST['action']))
 			$a = json_decode($q,true);
 			$a['payed'] = 1;
 			$out = json_encode($a);
-			if (file_put_contents('../../data/_sdata-'.$sdata.'/_payment/'.$_POST['id'].'.json', $out)) echo _('Paid');
-			else echo '!'._('Error');
+			if (file_put_contents('../../data/_sdata-'.$sdata.'/_payment/'.$_POST['id'].'.json', $out)) echo T_('Paid');
+			else echo '!'.T_('Error');
 			}
-		else echo '!'._('Error');
+		else echo '!'.T_('Error');
 		break;
 		// ********************************************************************************************
 		case 'treated':
@@ -382,12 +382,12 @@ if (isset($_POST['action']))
 			$a = json_decode($q,true);
 			$a['treated'] = 1;
 			$out = json_encode($a);
-			if($_POST['typ']=='paypal' && file_put_contents('../../data/_sdata-'.$sdata.'/_paypal/'.$_POST['id'].'.json', $out)) echo _('Treated');
-			else if($_POST['typ']=='payplug' && file_put_contents('../../data/_sdata-'.$sdata.'/_payplug/'.$_POST['id'].'.json', $out)) echo _('Treated');
-			else if($_POST['typ']=='payment' && isset($a['payed']) && $a['payed']==1 && file_put_contents('../../data/_sdata-'.$sdata.'/_payment/'.$_POST['id'].'.json', $out)) echo _('Treated');
-			else echo '!'._('Error');
+			if($_POST['typ']=='paypal' && file_put_contents('../../data/_sdata-'.$sdata.'/_paypal/'.$_POST['id'].'.json', $out)) echo T_('Treated');
+			else if($_POST['typ']=='payplug' && file_put_contents('../../data/_sdata-'.$sdata.'/_payplug/'.$_POST['id'].'.json', $out)) echo T_('Treated');
+			else if($_POST['typ']=='payment' && isset($a['payed']) && $a['payed']==1 && file_put_contents('../../data/_sdata-'.$sdata.'/_payment/'.$_POST['id'].'.json', $out)) echo T_('Treated');
+			else echo '!'.T_('Error');
 			}
-		else echo '!'._('Error');
+		else echo '!'.T_('Error');
 		break;
 		// ********************************************************************************************
 		case 'reset':
@@ -398,28 +398,28 @@ if (isset($_POST['action']))
 			$a['treated'] = 0;
 			if($_POST['typ']=='payment') $a['payed'] = 0;
 			$out = json_encode($a);
-			if($_POST['typ']=='paypal' && file_put_contents('../../data/_sdata-'.$sdata.'/_paypal/'.$_POST['id'].'.json', $out)) echo _('Reset');
-			else if($_POST['typ']=='payplug' && file_put_contents('../../data/_sdata-'.$sdata.'/_payplug/'.$_POST['id'].'.json', $out)) echo _('Reset');
-			else if($_POST['typ']=='payment' && file_put_contents('../../data/_sdata-'.$sdata.'/_payment/'.$_POST['id'].'.json', $out)) echo _('Reset');
-			else echo '!'._('Error');
+			if($_POST['typ']=='paypal' && file_put_contents('../../data/_sdata-'.$sdata.'/_paypal/'.$_POST['id'].'.json', $out)) echo T_('Reset');
+			else if($_POST['typ']=='payplug' && file_put_contents('../../data/_sdata-'.$sdata.'/_payplug/'.$_POST['id'].'.json', $out)) echo T_('Reset');
+			else if($_POST['typ']=='payment' && file_put_contents('../../data/_sdata-'.$sdata.'/_payment/'.$_POST['id'].'.json', $out)) echo T_('Reset');
+			else echo '!'.T_('Error');
 			}
-		else echo '!'._('Error');
+		else echo '!'.T_('Error');
 		break;
 		// ********************************************************************************************
 		case 'del':
-		if(file_exists('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json') && unlink('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json')) echo _('Deleted');
-		else echo '!'._('Error');
+		if(file_exists('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json') && unlink('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json')) echo T_('Deleted');
+		else echo '!'.T_('Error');
 		break;
 		// ********************************************************************************************
 		case 'archiv':
 		if(!is_dir('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/archive')) mkdir('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/archive',0711);
-		if(file_exists('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json') && rename('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json','../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/archive/'.$_POST['id'].'.json')) echo _('Archived');
-		else echo '!'._('Error');
+		if(file_exists('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json') && rename('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json','../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/archive/'.$_POST['id'].'.json')) echo T_('Archived');
+		else echo '!'.T_('Error');
 		break;
 		// ********************************************************************************************
 		case 'restaur':
-		if(file_exists('../../data/_sdata-'.$sdata.'/_payment/archive/'.$_POST['f']) && rename('../../data/_sdata-'.$sdata.'/_payment/archive/'.$_POST['f'],'../../data/_sdata-'.$sdata.'/_payment/'.$_POST['f'])) echo _('Restored');
-		else echo '!'._('Error');
+		if(file_exists('../../data/_sdata-'.$sdata.'/_payment/archive/'.$_POST['f']) && rename('../../data/_sdata-'.$sdata.'/_payment/archive/'.$_POST['f'],'../../data/_sdata-'.$sdata.'/_payment/'.$_POST['f'])) echo T_('Restored');
+		else echo '!'.T_('Error');
 		break;
 		// ********************************************************************************************
 		case 'viewArchiv':
@@ -443,13 +443,13 @@ if (isset($_POST['action']))
 		if(isset($_POST['arch']) && file_exists('../../data/_sdata-'.$sdata.'/_payment/archive/'.$_POST['arch']))
 			{
 			$q = @file_get_contents('../../data/_sdata-'.$sdata.'/_payment/archive/'.$_POST['arch']);
-			$a = json_decode($q,true); $o = '<h3>'._('Archives').'</h3><table class="paymentTO">';
+			$a = json_decode($q,true); $o = '<h3>'.T_('Archives').'</h3><table class="paymentTO">';
 			foreach($a as $k=>$v)
 				{
 				if($k=='time') $v .= ' => '.date("d/m/Y H:i",$v);
 				$o .= '<tr><td>'.$k.'</td><td>'.(is_array($v)?json_encode($v):$v).'</td></tr>';
 				}
-			echo $o.'</table><div class="bouton fr" onClick="f_paymentRestaurOrder(\''.$_POST['arch'].'\');" title="'._("Restore").'">'._("Restore").'</div><div style="clear:both;"></div>';
+			echo $o.'</table><div class="bouton fr" onClick="f_paymentRestaurOrder(\''.$_POST['arch'].'\');" title="'.T_("Restore").'">'.T_("Restore").'</div><div style="clear:both;"></div>';
 			}
 		break;
 		// ********************************************************************************************
@@ -467,9 +467,9 @@ if (isset($_POST['action']))
 			if($_POST['sys']=='paypal') $a = getPaypalOrder($_POST['id'],$sdata);
 			else if($_POST['sys']=='payplug') $a = getPayplugOrder($_POST['id'],$sdata);
 			else if($_POST['sys']=='payment') $a = getPaymentOrder($_POST['id'],$sdata);
-			$o .= '<p>'._("Order").' : '.$_POST['id']. ' - '.date("d/m/Y H:i",$a['time']).'</p>';
-			$o .= '<h3>'._("Order Details").'</h3>';
-			$o .= '<table class="paymentTO"><tr><th>'._("Name").'</th><th>'._("Ref").'</th><th>'._("Price").'</th><th>'._("Tax").'</th><th>'._("Quantity").'</th><th>'._("Tax").'</th><th>'._("Total").'</th></tr>';
+			$o .= '<p>'.T_("Order").' : '.$_POST['id']. ' - '.date("d/m/Y H:i",$a['time']).'</p>';
+			$o .= '<h3>'.T_("Order Details").'</h3>';
+			$o .= '<table class="paymentTO"><tr><th>'.T_("Name").'</th><th>'.T_("Ref").'</th><th>'.T_("Price").'</th><th>'.T_("Tax").'</th><th>'.T_("Quantity").'</th><th>'.T_("Tax").'</th><th>'.T_("Total").'</th></tr>';
 			foreach($a['prod'] as $r)
 				{
 				$t = getTax($a,$r);
@@ -477,38 +477,38 @@ if (isset($_POST['action']))
 				$p += (pt($r['p'])*$r['q']);
 				$tax += ($t*$r['q']);
 				}
-			$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="3" class="paymentTN">'._("Subtotal").' : </td><td>'.$tax.' '.$curr.'</td><td>'.$p.' '.$curr.'</td></tr>';
+			$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="3" class="paymentTN">'.T_("Subtotal").' : </td><td>'.$tax.' '.$curr.'</td><td>'.$p.' '.$curr.'</td></tr>';
 			if(isset($a['ship']))
 				{
-				$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="4" class="paymentTN">'._("Shipping cost").' : </td><td>'.$a['ship'].' '.$curr.'</td></tr>';
+				$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="4" class="paymentTN">'.T_("Shipping cost").' : </td><td>'.$a['ship'].' '.$curr.'</td></tr>';
 				$p += pt($a['ship']);
 				}
-			$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="4" class="paymentTN">'._("Total").' : </td><td style="font-weight:700">'.$p.' '.$curr.'</td></tr>';
+			$o .= '<tr><td colspan="2" class="paymentTN">&nbsp;</td><td colspan="4" class="paymentTN">'.T_("Total").' : </td><td style="font-weight:700">'.$p.' '.$curr.'</td></tr>';
 			$o .= '</table>';
-			$o .='<h3>'._("Shipping address").'</h3>';
+			$o .='<h3>'.T_("Shipping address").'</h3>';
 			$o .= '<table class="paymentTO">';
 			if($a['name'])
 				{
-				$o .= '<tr><td>'._("Name").' :</td><td>'.$a['name'].'</td></tr>';
-				$o .= '<tr><td>'._("Address").' :</td><td>'.$a['adre'].'</td></tr>';
-				$o .= '<tr><td>'._("Mail").' :</td><td>'.$a['mail'].'</td></tr>';
+				$o .= '<tr><td>'.T_("Name").' :</td><td>'.$a['name'].'</td></tr>';
+				$o .= '<tr><td>'.T_("Address").' :</td><td>'.$a['adre'].'</td></tr>';
+				$o .= '<tr><td>'.T_("Mail").' :</td><td>'.$a['mail'].'</td></tr>';
 				}
 			$o .= '</table>';
-			if($_POST['sys']=='payment' && isset($a['cv']) && $a['cv']=='cheq') $typ = _("Cheque");
-			else if($_POST['sys']=='payment' && isset($a['cv']) && $a['cv']=='vire') $typ = _("Bank Transfer");
-			$o .= '<h3 style="text-transform:capitalize;">'._("Payment").' : '.($typ?$typ:$_POST['sys']).'</h3>';
-			$o .= '<div id="Bdel" class="bouton fr" onClick="f_delOrderPayment(\''.$_POST['id'].'\',\''._("Are you sure ?").'\',\''.$_POST['sys'].'\')" title="">'._("Delete").'</div>';
+			if($_POST['sys']=='payment' && isset($a['cv']) && $a['cv']=='cheq') $typ = T_("Cheque");
+			else if($_POST['sys']=='payment' && isset($a['cv']) && $a['cv']=='vire') $typ = T_("Bank Transfer");
+			$o .= '<h3 style="text-transform:capitalize;">'.T_("Payment").' : '.($typ?$typ:$_POST['sys']).'</h3>';
+			$o .= '<div id="Bdel" class="bouton fr" onClick="f_delOrderPayment(\''.$_POST['id'].'\',\''.T_("Are you sure ?").'\',\''.$_POST['sys'].'\')" title="">'.T_("Delete").'</div>';
 			$o .= '<table><tr><td>';
-			$o .= '<p id="Opayed">'._("Paid").' : '.((isset($a['payed']) && $a['payed']==0)?_("No"):_("Yes")).'</p>';
-			$o .= '<p id="Otreated">'._("Treated").' : '.((isset($a['treated']) && $a['treated']==0)?_("No"):_("Yes")).'</p>';
+			$o .= '<p id="Opayed">'.T_("Paid").' : '.((isset($a['payed']) && $a['payed']==0)?T_("No"):T_("Yes")).'</p>';
+			$o .= '<p id="Otreated">'.T_("Treated").' : '.((isset($a['treated']) && $a['treated']==0)?T_("No"):T_("Yes")).'</p>';
 			$o .= '</td><td style="vertical-align:middle">';
-			$o .= '<div id="Bpayed" '.((!isset($a['payed']) || $a['payed']==1)?'style="display:none;" ':'').'class="bouton" onClick="f_payedOrderPayment(\''.$_POST['id'].'\',\''._("Paid").' : '._("Yes").'\')" title="">'._("Paid").'</div>';
-			$o .= '<div id="Btreated" '.((isset($a['payed']) && $a['payed']==0 || isset($a['treated']) && $a['treated']==1)?'style="display:none;"':'').'class="bouton" onClick="f_treatedOrderPayment(\''.$_POST['id'].'\',\''._("Treated").' : '._("Yes").'\',\''.$_POST['sys'].'\')" title="">'._("Treated").'</div>';
-			$o .= '<div id="Breset" '.((isset($a['treated']) && $a['treated']==0)?'style="display:none;"':'').'class="bouton" onClick="f_resetOrderPayment(\''.$_POST['id'].'\',\''._("Paid").' : '._("No").'\',\''._("Treated").' : '._("No").'\',\''.$_POST['sys'].'\')" title="">'._("Reset").'</div>';
+			$o .= '<div id="Bpayed" '.((!isset($a['payed']) || $a['payed']==1)?'style="display:none;" ':'').'class="bouton" onClick="f_payedOrderPayment(\''.$_POST['id'].'\',\''.T_("Paid").' : '.T_("Yes").'\')" title="">'.T_("Paid").'</div>';
+			$o .= '<div id="Btreated" '.((isset($a['payed']) && $a['payed']==0 || isset($a['treated']) && $a['treated']==1)?'style="display:none;"':'').'class="bouton" onClick="f_treatedOrderPayment(\''.$_POST['id'].'\',\''.T_("Treated").' : '.T_("Yes").'\',\''.$_POST['sys'].'\')" title="">'.T_("Treated").'</div>';
+			$o .= '<div id="Breset" '.((isset($a['treated']) && $a['treated']==0)?'style="display:none;"':'').'class="bouton" onClick="f_resetOrderPayment(\''.$_POST['id'].'\',\''.T_("Paid").' : '.T_("No").'\',\''.T_("Treated").' : '.T_("No").'\',\''.$_POST['sys'].'\')" title="">'.T_("Reset").'</div>';
 			$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
 			$r = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, 'payment', $_POST['id'].'|'.$a['mail'], MCRYPT_MODE_ECB, $iv));
-			$o .= '<a href="uno/plugins/payment/paymentPdf.php?k='.urlencode($r).'&s='.$_POST['sys'].'&t=1" target="_blank" id="Bfacture" '.((isset($a['payed']) && $a['payed']==0)?'style="display:none;"':'').'class="bouton" title="">'._("Invoice in PDF").'</a>';
-			$o .= '<div id="Barchiv" '.((isset($a['treated']) && $a['treated']==0)?'style="display:none;"':'').'class="bouton" onClick="f_archivOrderPayment(\''.$_POST['id'].'\',\''._("Are you sure ?").'\',\''.$_POST['sys'].'\')" title="">'._("Archive").'</div>';
+			$o .= '<a href="uno/plugins/payment/paymentPdf.php?k='.urlencode($r).'&s='.$_POST['sys'].'&t=1" target="_blank" id="Bfacture" '.((isset($a['payed']) && $a['payed']==0)?'style="display:none;"':'').'class="bouton" title="">'.T_("Invoice in PDF").'</a>';
+			$o .= '<div id="Barchiv" '.((isset($a['treated']) && $a['treated']==0)?'style="display:none;"':'').'class="bouton" onClick="f_archivOrderPayment(\''.$_POST['id'].'\',\''.T_("Are you sure ?").'\',\''.$_POST['sys'].'\')" title="">'.T_("Archive").'</div>';
 			$o .= '</tr></table>';
 			//
 			$o .= '<hr /><h3 style="text-transform:capitalize;">'.$_POST['sys'].'</h3>';
@@ -526,7 +526,7 @@ if (isset($_POST['action']))
 			$o .= '</table>';
 			echo $o;
 			}
-		else echo '!'._('Error');
+		else echo '!'.T_('Error');
 		break;
 		// ********************************************************************************************
 		}

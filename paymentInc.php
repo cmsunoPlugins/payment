@@ -39,27 +39,27 @@ if (isset($_POST['a']))
 					}
 				}
 			if($n) $cartJson = '{"prod":{' . $cartJson . '},"ship":"'.$a1['ship'].'","Utax":"'.$a1['taa'].'|'.$a1['tab'].'|'.$a1['tac'].'|'.$a1['tad'].'","curr":"'.$a1['curr'].'"}';
-			$o = '<div style="text-align:right">'._('Order').' : '.$p.' '.$a1['curr'].'<br/>';
+			$o = '<div style="text-align:right">'.T_('Order').' : '.$p.' '.$a1['curr'].'<br/>';
 			if($tax)
 				{
-				$o .= _('Tax').' : '.$tax.' '.$a1['curr'].'<br/>';
+				$o .= T_('Tax').' : '.$tax.' '.$a1['curr'].'<br/>';
 				$p += $tax;
 				}
-			$o .= _('Shipping cost').' : '.$a1['ship'].' '.$a1['curr'].'<br/>';
+			$o .= T_('Shipping cost').' : '.$a1['ship'].' '.$a1['curr'].'<br/>';
 			$p += $a1['ship'];
-			$o .= _("Total").' : '.$p.' ' .$a1['curr'].'</div>';
-			$o .= '<div style="text-align:left">'._('Shipping').' :</div>';
+			$o .= T_("Total").' : '.$p.' ' .$a1['curr'].'</div>';
+			$o .= '<div style="text-align:left">'.T_('Shipping').' :</div>';
 			$o .= '<table class="popAdress" >';
-			$o .= '<tr><td>'._("Name").'*</td><td><input style="max-width:100%" type="text" id="popNa" /></td></tr>';
-			$o .= '<tr><td>'._("Address").'*</td><td><input style="max-width:100%" type="text" id="popAd" /></td></tr>';
-			$o .= '<tr><td>'._("Mail").'*</td><td><input style="max-width:100%" type="text" id="popMa" /></td></tr></table>';
+			$o .= '<tr><td>'.T_("Name").'*</td><td><input style="max-width:100%" type="text" id="popNa" /></td></tr>';
+			$o .= '<tr><td>'.T_("Address").'*</td><td><input style="max-width:100%" type="text" id="popAd" /></td></tr>';
+			$o .= '<tr><td>'.T_("Mail").'*</td><td><input style="max-width:100%" type="text" id="popMa" /></td></tr></table>';
 			$o .= '<div style="text-align:center">';
-			if(isset($a1['method']['plug']) && $a1['method']['plug']) $o .= '<a href="JavaScript:void(0);" id="popPlug"><img src="uno/plugins/payment/img/payplug76.png" alt="'._("Secure payment by card").'" title="'._("Secure payment by card").'" class="logo" /></a>';
-			if(isset($a1['method']['ppal']) && $a1['method']['ppal']) $o .= '<a href="JavaScript:void(0);" id="popPpal"><img src="uno/plugins/payment/img/paypal76.png" alt="'._("Pay with your Paypal account").'" title="'._("Pay with your Paypal account").'" class="logo" /></a>';
-			if(isset($a1['method']['cheq']) && $a1['method']['cheq']) $o .= '<a href="JavaScript:void(0);" id="popCheq"><img src="uno/plugins/payment/img/cheque76.png" alt="'._("Pay by cheque").'" title="'._("Pay by cheque").'" class="logo" /></a>';
-			if(isset($a1['method']['vire']) && $a1['method']['vire']) $o .= '<a href="JavaScript:void(0);" id="popVire"><img src="uno/plugins/payment/img/virement76.png" alt="'._("Bank transfer").'" title="'._("Bank transfer").'" class="logo" /></a>';
+			if(isset($a1['method']['plug']) && $a1['method']['plug']) $o .= '<a href="JavaScript:void(0);" id="popPlug"><img src="uno/plugins/payment/img/payplug76.png" alt="'.T_("Secure payment by card").'" title="'.T_("Secure payment by card").'" class="logo" /></a>';
+			if(isset($a1['method']['ppal']) && $a1['method']['ppal']) $o .= '<a href="JavaScript:void(0);" id="popPpal"><img src="uno/plugins/payment/img/paypal76.png" alt="'.T_("Pay with your Paypal account").'" title="'.T_("Pay with your Paypal account").'" class="logo" /></a>';
+			if(isset($a1['method']['cheq']) && $a1['method']['cheq']) $o .= '<a href="JavaScript:void(0);" id="popCheq"><img src="uno/plugins/payment/img/cheque76.png" alt="'.T_("Pay by cheque").'" title="'.T_("Pay by cheque").'" class="logo" /></a>';
+			if(isset($a1['method']['vire']) && $a1['method']['vire']) $o .= '<a href="JavaScript:void(0);" id="popVire"><img src="uno/plugins/payment/img/virement76.png" alt="'.T_("Bank transfer").'" title="'.T_("Bank transfer").'" class="logo" /></a>';
 			$o .= '</div><div id="popAlert"></div>';
-			echo $cartJson.'|;'.$o.'|;'._('Fields are mandatory').'|;'._('Invalid email');
+			echo $cartJson.'|;'.$o.'|;'.T_('Fields are mandatory').'|;'.T_('Invalid email');
 			}
 		break;
 		// ********************************************************************************************
@@ -77,7 +77,7 @@ if (isset($_POST['a']))
 			else $mailAdmin = false;
 			include dirname(__FILE__).'/../../template/mailTemplate.php';
 			$q = file_get_contents(dirname(__FILE__).'/../../data/'.$Ubusy.'/site.json'); $b = json_decode($q,true);
-			$subject = $b['tit'] . ' - ' . _('Order');
+			$subject = $b['tit'] . ' - ' . T_('Order');
 			$cartJson = '';
 			$q1 = file_get_contents('../../data/'.$Ubusy.'/payment.json');
 			$a1 = json_decode($q1,true);
@@ -100,11 +100,11 @@ if (isset($_POST['a']))
 						}
 					}
 				}
-			$o = '<div style="text-align:right">'._('Order').' : '.$p.' '.$a1['curr'].'<br />'._('Shipping cost').' : '.$a1['ship'].' '.$a1['curr'].'<br />';
-			$u .= '</p><p>'._('Order').' : '.$p.' '.$a1['curr'].'<br />'._('Shipping cost').' : '.$a1['ship'].' '.$a1['curr'].'<br />';
+			$o = '<div style="text-align:right">'.T_('Order').' : '.$p.' '.$a1['curr'].'<br />'.T_('Shipping cost').' : '.$a1['ship'].' '.$a1['curr'].'<br />';
+			$u .= '</p><p>'.T_('Order').' : '.$p.' '.$a1['curr'].'<br />'.T_('Shipping cost').' : '.$a1['ship'].' '.$a1['curr'].'<br />';
 			$p += $a1['ship'];
-			$o .= _("Total").' : '.$p.' ' .$a1['curr'].'</div>';
-			$u .= _("Total").'<strong> : '.$p.' ' .$a1['curr'].'</strong></p>';
+			$o .= T_("Total").' : '.$p.' ' .$a1['curr'].'</div>';
+			$u .= T_("Total").'<strong> : '.$p.' ' .$a1['curr'].'</strong></p>';
 			$u = str_replace(".",",",$u);
 			$ref = preg_replace("/[^a-zA-Z]+/","",$bio->name);
 			$ref = date("di").substr($ref,0,5).intval($p);
@@ -114,19 +114,19 @@ if (isset($_POST['a']))
 			// Link to destroy order
 			$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
 			$r = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, 'payment', $ref.'|'.$bio->mail, MCRYPT_MODE_ECB, $iv));
-			$info = "<a href='".stripslashes($b['url']).'/uno/plugins/payment/paymentOrder.php?a=look&b='.urlencode($r)."&t=payment'>"._("Follow the evolution of your order")."</a>";
-			$supp = "<a href='".stripslashes($b['url']).'/uno/plugins/payment/paymentOrder.php?a=del&b='.urlencode($r)."'>"._("Cancel this order")."</a>";
+			$info = "<a href='".stripslashes($b['url']).'/uno/plugins/payment/paymentOrder.php?a=look&b='.urlencode($r)."&t=payment'>".T_("Follow the evolution of your order")."</a>";
+			$supp = "<a href='".stripslashes($b['url']).'/uno/plugins/payment/paymentOrder.php?a=del&b='.urlencode($r)."'>".T_("Cancel this order")."</a>";
 			$bottom = str_replace('[[unsubscribe]]',$supp, $bottom); // template
 			//
 			if($_POST['d']=='cheq')
 				{
-				$o .= '<hr /><div style="text-align:left">'._('Send your cheque to the following address').' :<br />'.$a1['adre'].'<br />'._('Payable to').' : '.$a1['own'].'</div>';
-				$ua = $u . '<hr /><p>'._('Name').' : '.$bio->name.'<br />'._('Address').' : '.$bio->adre.'<br />'._('Mail').' : '.$bio->mail.'</p>';
-				$u .= '<hr /><p>'._('Send your cheque to the following address').' :<br />'.$a1['adre'].'<br />'._('Payable to').' : '.$a1['own'].'<br />'._('Ref to mention').' : '.$ref.'</p>';
-				$u .= '<p>'._('We expect your payment within 10 days. After this time, the order will be destroyed.').'</p>';
-				$u .= '<p>'._('Thank you for your trust.').'</p>';
+				$o .= '<hr /><div style="text-align:left">'.T_('Send your cheque to the following address').' :<br />'.$a1['adre'].'<br />'.T_('Payable to').' : '.$a1['own'].'</div>';
+				$ua = $u . '<hr /><p>'.T_('Name').' : '.$bio->name.'<br />'.T_('Address').' : '.$bio->adre.'<br />'.T_('Mail').' : '.$bio->mail.'</p>';
+				$u .= '<hr /><p>'.T_('Send your cheque to the following address').' :<br />'.$a1['adre'].'<br />'.T_('Payable to').' : '.$a1['own'].'<br />'.T_('Ref to mention').' : '.$ref.'</p>';
+				$u .= '<p>'.T_('We expect your payment within 10 days. After this time, the order will be destroyed.').'</p>';
+				$u .= '<p>'.T_('Thank you for your trust.').'</p>';
 				$u .= '<p>'.$info.'</p>';
-				if($mailAdmin) mailAdmin(_('New order by cheque'). ' - '.$ref, $ua, $bottom, $top, $b['url']);
+				if($mailAdmin) mailAdmin(T_('New order by cheque'). ' - '.$ref, $ua, $bottom, $top, $b['url']);
 				if($bio->mail) mailUser($bio->mail, $subject, $u, $bottom, $top, $b['url']);
 				$cartJson .= ',"cv":"cheq"}';
 				$out = stripslashes($cartJson);
@@ -134,22 +134,22 @@ if (isset($_POST['a']))
 				}
 			else if($_POST['d']=='vire')
 				{
-				$o .= '<hr /><div style="text-align:left">'._('Transfer your payment to the following account').' :<br />'._('Name').' : '.$a1['own'].'<br />'._('IBAN').' : '.$a1['iban'].'<br />'._('BIC').' : '.$a1['bic'].'</div>';
-				$ua = $u . '<hr /><p>'._('Name').' : '.$bio->name.'<br />'._('Address').' : '.$bio->adre.'<br />'._('Mail').' : '.$bio->mail.'</p>';
-				$u .= '<hr /><p>'._('Transfer your payment to the following account').' :<br />'._('Name').' : '.$a1['own'].'<br />'._('IBAN').' : '.$a1['iban'].'<br />'._('BIC').' : '.$a1['bic'].'<br />'._('Ref to mention').' : '.$ref.'</p>';
-				$u .= '<p>'._('We expect your payment within 10 days. After this time, the order will be destroyed.').'</p>';
-				$u .= '<p>'._('Thank you for your trust.').'</p>';
+				$o .= '<hr /><div style="text-align:left">'.T_('Transfer your payment to the following account').' :<br />'.T_('Name').' : '.$a1['own'].'<br />'.T_('IBAN').' : '.$a1['iban'].'<br />'.T_('BIC').' : '.$a1['bic'].'</div>';
+				$ua = $u . '<hr /><p>'.T_('Name').' : '.$bio->name.'<br />'.T_('Address').' : '.$bio->adre.'<br />'.T_('Mail').' : '.$bio->mail.'</p>';
+				$u .= '<hr /><p>'.T_('Transfer your payment to the following account').' :<br />'.T_('Name').' : '.$a1['own'].'<br />'.T_('IBAN').' : '.$a1['iban'].'<br />'.T_('BIC').' : '.$a1['bic'].'<br />'.T_('Ref to mention').' : '.$ref.'</p>';
+				$u .= '<p>'.T_('We expect your payment within 10 days. After this time, the order will be destroyed.').'</p>';
+				$u .= '<p>'.T_('Thank you for your trust.').'</p>';
 				$u .= '<p>'.$info.'</p>';
-				if($mailAdmin) mailAdmin(_('New order by bank transfer'). ' - '.$ref, $ua, $bottom, $top, $b['url']);
+				if($mailAdmin) mailAdmin(T_('New order by bank transfer'). ' - '.$ref, $ua, $bottom, $top, $b['url']);
 				if($bio->mail) mailUser($bio->mail, $subject, $u, $bottom, $top, $b['url']);
 				$cartJson .= ',"cv":"vire"}';
 				$out = stripslashes($cartJson);
 				file_put_contents('../../data/_sdata-'.$sdata.'/_payment/'.$ref.'.json', $out);
 				}
-			$o .= '<hr /><div style="text-align:left">'._('A summary email with the elements for payment was sent to you.').'<br />'._('Thank you for your trust.').'</div>';
+			$o .= '<hr /><div style="text-align:left">'.T_('A summary email with the elements for payment was sent to you.').'<br />'.T_('Thank you for your trust.').'</div>';
 			echo $o;
 			}
-		else if(!filter_var($bio->mail,FILTER_VALIDATE_EMAIL)) echo _('Invalid email'). ' : ' . $bio->mail;
+		else if(!filter_var($bio->mail,FILTER_VALIDATE_EMAIL)) echo T_('Invalid email'). ' : ' . $bio->mail;
 		break;
 		// ********************************************************************************************
 		}

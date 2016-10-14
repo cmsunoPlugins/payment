@@ -33,6 +33,7 @@ Very usefull and powerfull.
 
 ### Versions ###
 
+* 1.1 - 14/10/2016 : Use PHP-Gettext in place of gettext
 * 1.0.2 - 16/11/2015 : Fix a bug
 * 1.0.1 - 15/11/2015 : ColorPicker
 * 1.0 - 05/10/2015 : First stable version
