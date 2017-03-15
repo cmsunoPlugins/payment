@@ -1,16 +1,15 @@
 <?php
-if (isset($_GET['a']) && isset($_GET['b']))
+if(isset($_GET['a']) && isset($_GET['b']))
 	{
 	include('../../config.php');
 	include('lang/lang.php');
-	$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
-	$b = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, 'payment', base64_decode($_GET['b']), MCRYPT_MODE_ECB, $iv);
+	$b = openssl_decrypt(base64_decode($_GET['b']), 'AES-256-CBC', substr($Ukey,0,32), OPENSSL_RAW_DATA, base64_decode($_GET['i']));
 	$b = rtrim($b, "\0");
 	$b = explode('|',$b);
 	if(is_array($b))
 		{
 		$o = '<html><head><meta charset="utf-8"><style>.paymentTO td{padding:4px 10px;}.paymentTN{text-align:right;}</style></head><body style="background-color:#f6f6f6;"><div style="max-width:860px;margin:20px auto;padding:15px;background-color:#fff;">';
-		switch ($_GET['a'])
+		switch($_GET['a'])
 			{
 			// ********************************************************************************************
 			case 'del':
@@ -23,7 +22,7 @@ if (isset($_GET['a']) && isset($_GET['b']))
 					unlink('../../data/_sdata-'.$sdata.'/_payment/'.$b[0].'.json');
 					$o .= '<h1>'.T_('The order is canceled').'</h1>';
 					}
-				else $o .= '<h1>'.T_('Error').'</h1>';
+				else $o .= '<h1>'.T_('Sorry, this is no longer feasible online').'</h1>';
 				}
 			else $o .= '<h1>'.T_('Error').'</h1>';
 			break;
@@ -74,19 +73,18 @@ if (isset($_GET['a']) && isset($_GET['b']))
 				if($sys=='payment' && isset($a['cv']) && $a['cv']=='cheq') $typ = T_("Cheque");
 				else if($sys=='payment' && isset($a['cv']) && $a['cv']=='vire') $typ = T_("Bank Transfer");
 				$o .= '<h3 style="text-transform:capitalize;">'.T_("Payment").' : '.($typ?$typ:$sys).'</h3>';
-				$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
-				$r = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, 'payment', $b[0].'|'.$a['mail'], MCRYPT_MODE_ECB, $iv));
+				$iv = openssl_random_pseudo_bytes(16);
+				$r = base64_encode(openssl_encrypt($b[0].'|'.$a['mail'], 'AES-256-CBC', substr($Ukey,0,32), OPENSSL_RAW_DATA, $iv));
 				if(isset($a['payed']) && !$a['payed']) $o .= '<p>'.T_("Not paid").'</p>';
 				else 
 					{
 					$o .= '<p>'.T_("Paid").'</p>';
 					if(!$a['treated']) $o .= '<p>'.T_("Not treated").'</p>';
 					else $o .= '<p>'.T_("Out for delivery").'</p>';
-					$o .= '<p><a href="paymentPdf.php?k='.urlencode($r).'&s='.$sys.'&t=1" target="_blank" title="">'.T_("Invoice in PDF").'</a></p>';
+					$o .= '<p><a href="paymentPdf.php?k='.urlencode($r).'&i='.base64_encode($iv).'&s='.$sys.'&t=1" target="_blank" title="">'.T_("Invoice in PDF").'</a></p>';
 					}
 				}
 			else $o .= '<h1>'.T_('Error').'</h1>';
-			// else {sleep(2);exit;}
 			break;
 			// ********************************************************************************************
 			}

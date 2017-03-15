@@ -11,7 +11,7 @@ if(file_exists('data/'.$Ubusy.'/payment.json'))
 	$q1 = file_get_contents('data/'.$Ubusy.'/payment.json');
 	$a1 = json_decode($q1,true);
 	$it = (isset($a1['it'])?$a1['it']:'shortcode');
-	$ali= (isset($a1['ali'])?$a1['ali']:'left');
+	$ali = (isset($a1['ali'])?$a1['ali']:'left');
 	$col = (isset($a1['col'])?$a1['col']:'#eee');
 	$ico = (isset($a1['ico'])?$a1['ico']:'black');
 	$Ustyle .= '.cart{position:relative;display:inline-block;height:auto;padding:0;font-size:.9em;margin:0;line-height:1.1em;white-space:nowrap;}

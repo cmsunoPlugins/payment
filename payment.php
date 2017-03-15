@@ -235,29 +235,29 @@ if (isset($_POST['action']))
 			#paymentVente table tr.PayNo td, #paymentVente table tr.PayNo td a{color:#ff3b00;}
 			#paymentVente table td.yesno{text-decoration:underline;cursor:pointer;}
 		</style>';
-		$tab='';
+		$tab = array();
 		if(file_exists('../../data/_sdata-'.$sdata.'/_paypal/'))
 			{
-			$d='../../data/_sdata-'.$sdata.'/_paypal/';
-			if ($dh=opendir($d))
+			$d = '../../data/_sdata-'.$sdata.'/_paypal/';
+			if($dh=opendir($d))
 				{
-				while (($file = readdir($dh))!==false) { if ($file!='.' && $file!='..') $tab[]=$d.$file; }
+				while(($file = readdir($dh))!==false) { if ($file!='.' && $file!='..') $tab[] = $d.$file; }
 				closedir($dh);
 				}
 			}
 		if(file_exists('../../data/_sdata-'.$sdata.'/_payplug/'))
 			{
-			$d='../../data/_sdata-'.$sdata.'/_payplug/';
-			if ($dh=opendir($d))
+			$d = '../../data/_sdata-'.$sdata.'/_payplug/';
+			if($dh=opendir($d))
 				{
-				while (($file = readdir($dh))!==false) { if ($file!='.' && $file!='..') $tab[]=$d.$file; }
+				while(($file = readdir($dh))!==false) { if ($file!='.' && $file!='..') $tab[] = $d.$file; }
 				closedir($dh);
 				}
 			}
-		$d='../../data/_sdata-'.$sdata.'/_payment/';
-		if ($dh=opendir($d))
+		$d = '../../data/_sdata-'.$sdata.'/_payment/';
+		if($dh=opendir($d))
 			{
-			while (($file = readdir($dh))!==false) { if ($file!='.' && $file!='..') $tab[]=$d.$file; }
+			while(($file = readdir($dh))!==false) { if ($file!='.' && $file!='..') $tab[] = $d.$file; }
 			closedir($dh);
 			}
 		if(count($tab) && is_array($tab))
@@ -267,9 +267,9 @@ if (isset($_POST['action']))
 			$b = array();
 			foreach($tab as $r)
 				{
-				$q=@file_get_contents($r);
-				$a=json_decode($q,true);
-				$b[]=$a;
+				$q = @file_get_contents($r);
+				$a = json_decode($q,true);
+				$b[] = $a;
 				}
 			function sortTime($u1,$u2) {return (isset($u2['time'])?$u2['time']:0) - (isset($u1['time'])?$u1['time']:0);}
 			usort($b, 'sortTime');
@@ -287,13 +287,13 @@ if (isset($_POST['action']))
 							$adr = $c[2];
 							$mail = $c[3];
 							}
-						$item=((isset($r['item_name']) && isset($r['quantity']))?$r['item_name'].(($r['quantity']!="0")?' ('.$r['quantity'].')':''):'');
+						$item = ((isset($r['item_name']) && isset($r['quantity']))?$r['item_name'].(($r['quantity']!="0")?' ('.$r['quantity'].')':''):'');
 						if(!$item)
 							{
-							$v=1;
+							$v = 1;
 							while(isset($r['item_name'.$v]))
 								{
-								$item.=($item?'<br />':'').$r['item_name'.$v].' ('.$r['quantity'.$v].')';
+								$item .= ($item?'<br />':'').$r['item_name'.$v].' ('.$r['quantity'.$v].')';
 								++$v;
 								}
 							}
@@ -316,7 +316,7 @@ if (isset($_POST['action']))
 						if(is_array($c)) foreach($c as $r1)
 							{
 							$r2 = explode('|',$r1);
-							if(is_array($r2) && $r2[0] && $r2[0]!='ADRESS') $item.=($item?'<br />':'').$r2[0].' ('.$r2[3].')'; // name, price, id, quantity
+							if(is_array($r2) && $r2[0] && $r2[0]!='ADRESS') $item .= ($item?'<br />':'').$r2[0].' ('.$r2[3].')'; // name, price, id, quantity
 							else if(is_array($r2) && $r2[0]=='ADRESS')
 								{
 								$name = $r2[1];
@@ -340,7 +340,7 @@ if (isset($_POST['action']))
 						$item = ''; $adr = ''; $name = ''; $mail = '';
 						foreach($r['prod'] as $r1)
 							{
-							$item.=($item?'<br />':'').$r1['n'].' ('.$r1['q'].')'; // name, price, id, quantity
+							$item .= ($item?'<br />':'').$r1['n'].' ('.$r1['q'].')'; // name, price, id, quantity
 							}
 						echo '<tr'.($r['payed']?($r['treated']?' class="PayTreatedYes"':''):' class="PayNo"').'>';
 						echo '<td>'.(isset($r['time'])?date("dMy H:i", $r['time']):'').'<br /><span style="font-size:.8em;text-decoration:underline;cursor:pointer;" onClick="f_paymentDetail(\''.$r['id'].'\',\'payment\')">'.$r['id'].'</span></td>';
@@ -377,7 +377,7 @@ if (isset($_POST['action']))
 		// ********************************************************************************************
 		case 'treated':
 		$q = @file_get_contents('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json');
-		if(isset($q) && $q)
+		if(!empty($q))
 			{
 			$a = json_decode($q,true);
 			$a['treated'] = 1;
@@ -392,7 +392,7 @@ if (isset($_POST['action']))
 		// ********************************************************************************************
 		case 'reset':
 		$q = @file_get_contents('../../data/_sdata-'.$sdata.'/_'.$_POST['typ'].'/'.$_POST['id'].'.json');
-		if(isset($q) && $q)
+		if(!empty($q))
 			{
 			$a = json_decode($q,true);
 			$a['treated'] = 0;
@@ -423,12 +423,12 @@ if (isset($_POST['action']))
 		break;
 		// ********************************************************************************************
 		case 'viewArchiv':
-		if (is_dir('../../data/_sdata-'.$sdata.'/_payment/archive') && $h=opendir('../../data/_sdata-'.$sdata.'/_payment/archive'))
+		if(is_dir('../../data/_sdata-'.$sdata.'/_payment/archive') && $h = opendir('../../data/_sdata-'.$sdata.'/_payment/archive'))
 			{
 			$o = '<div id="paymentArchData"></div><div>';
-			while(($d=readdir($h))!==false)
+			while(($d = readdir($h))!==false)
 				{
-				$ext=explode('.',$d); $ext=$ext[count($ext)-1];
+				$ext = explode('.',$d); $ext=$ext[count($ext)-1];
 				if($d!='.' && $d!='..' && $ext=='json')
 					{
 					$o .= '<div class="paymentListArchiv" onClick="f_paymentViewA(\''.$d.'\');">'.$d.'</div>';
@@ -443,7 +443,8 @@ if (isset($_POST['action']))
 		if(isset($_POST['arch']) && file_exists('../../data/_sdata-'.$sdata.'/_payment/archive/'.$_POST['arch']))
 			{
 			$q = @file_get_contents('../../data/_sdata-'.$sdata.'/_payment/archive/'.$_POST['arch']);
-			$a = json_decode($q,true); $o = '<h3>'.T_('Archives').'</h3><table class="paymentTO">';
+			$a = json_decode($q,true);
+			$o = '<h3>'.T_('Archives').'</h3><table class="paymentTO">';
 			foreach($a as $k=>$v)
 				{
 				if($k=='time') $v .= ' => '.date("d/m/Y H:i",$v);
@@ -505,9 +506,9 @@ if (isset($_POST['action']))
 			$o .= '<div id="Bpayed" '.((!isset($a['payed']) || $a['payed']==1)?'style="display:none;" ':'').'class="bouton" onClick="f_payedOrderPayment(\''.$_POST['id'].'\',\''.T_("Paid").' : '.T_("Yes").'\')" title="">'.T_("Paid").'</div>';
 			$o .= '<div id="Btreated" '.((isset($a['payed']) && $a['payed']==0 || isset($a['treated']) && $a['treated']==1)?'style="display:none;"':'').'class="bouton" onClick="f_treatedOrderPayment(\''.$_POST['id'].'\',\''.T_("Treated").' : '.T_("Yes").'\',\''.$_POST['sys'].'\')" title="">'.T_("Treated").'</div>';
 			$o .= '<div id="Breset" '.((isset($a['treated']) && $a['treated']==0)?'style="display:none;"':'').'class="bouton" onClick="f_resetOrderPayment(\''.$_POST['id'].'\',\''.T_("Paid").' : '.T_("No").'\',\''.T_("Treated").' : '.T_("No").'\',\''.$_POST['sys'].'\')" title="">'.T_("Reset").'</div>';
-			$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
-			$r = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, 'payment', $_POST['id'].'|'.$a['mail'], MCRYPT_MODE_ECB, $iv));
-			$o .= '<a href="uno/plugins/payment/paymentPdf.php?k='.urlencode($r).'&s='.$_POST['sys'].'&t=1" target="_blank" id="Bfacture" '.((isset($a['payed']) && $a['payed']==0)?'style="display:none;"':'').'class="bouton" title="">'.T_("Invoice in PDF").'</a>';
+			$iv = openssl_random_pseudo_bytes(16);
+			$r = base64_encode(openssl_encrypt($_POST['id'].'|'.$a['mail'], 'AES-256-CBC', substr($Ukey,0,32), OPENSSL_RAW_DATA, $iv));
+			$o .= '<a href="uno/plugins/payment/paymentPdf.php?k='.urlencode($r).'&i='.base64_encode($iv).'&s='.$_POST['sys'].'&t=1" target="_blank" id="Bfacture" '.((isset($a['payed']) && $a['payed']==0)?'style="display:none;"':'').'class="bouton" title="">'.T_("Invoice in PDF").'</a>';
 			$o .= '<div id="Barchiv" '.((isset($a['treated']) && $a['treated']==0)?'style="display:none;"':'').'class="bouton" onClick="f_archivOrderPayment(\''.$_POST['id'].'\',\''.T_("Are you sure ?").'\',\''.$_POST['sys'].'\')" title="">'.T_("Archive").'</div>';
 			$o .= '</tr></table>';
 			//

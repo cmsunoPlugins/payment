@@ -6,7 +6,7 @@ if (isset($_POST['a']))
 	{
 	include('../../config.php');
 	include('lang/lang.php');
-	switch ($_POST['a'])
+	switch($_POST['a'])
 		{
 		// JSON : {"prod":{"0":{"n":"clef de 12","p":8.5,"i":"","q":1},"1":{"n":"tournevis","p":1.5,"i":"","q":2},"2":{"n":"papier craft","p":0.21,"i":"","q":30}},"ship":"4","name":"Sting","adre":"rue du lac 33234 PLOUG","Ubusy":"index"}
 		// n=nom, p=prix, i=ID, q=quantite
@@ -112,10 +112,10 @@ if (isset($_POST['a']))
 			if(file_exists('../../data/_sdata-'.$sdata.'/_payment/'.$ref.'.json')) $ref = time();
 			$cartJson .= '},"ship":"'.$a1['ship'].'","Utax":"'.$a1['taa'].'|'.$a1['tab'].'|'.$a1['tac'].'|'.$a1['tad'].'","time":"'.time().'","treated":"0","payed":"0","curr":"'.$a1['curr'].'","Ubusy":"'.$Ubusy.'","name":"'.$bio->name.'","adre":"'.$bio->adre.'","mail":"'.$bio->mail.'","total":"'.$p.'","id":"'.$ref.'"';
 			// Link to destroy order
-			$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
-			$r = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, 'payment', $ref.'|'.$bio->mail, MCRYPT_MODE_ECB, $iv));
-			$info = "<a href='".stripslashes($b['url']).'/uno/plugins/payment/paymentOrder.php?a=look&b='.urlencode($r)."&t=payment'>".T_("Follow the evolution of your order")."</a>";
-			$supp = "<a href='".stripslashes($b['url']).'/uno/plugins/payment/paymentOrder.php?a=del&b='.urlencode($r)."'>".T_("Cancel this order")."</a>";
+			$iv = openssl_random_pseudo_bytes(16);
+			$r = base64_encode(openssl_encrypt($ref.'|'.$bio->mail, 'AES-256-CBC', substr($Ukey,0,32), OPENSSL_RAW_DATA, $iv));
+			$info = "<a href='".stripslashes($b['url']).'/uno/plugins/payment/paymentOrder.php?a=look&b='.urlencode($r).'&i='.base64_encode($iv)."&t=payment'>".T_("Follow the evolution of your order")."</a>";
+			$supp = "<a href='".stripslashes($b['url']).'/uno/plugins/payment/paymentOrder.php?a=del&b='.urlencode($r).'&i='.base64_encode($iv)."'>".T_("Cancel this order")."</a>";
 			$bottom = str_replace('[[unsubscribe]]',$supp, $bottom); // template
 			//
 			if($_POST['d']=='cheq')
@@ -190,55 +190,92 @@ function getTax($a1,$t1)
 	return intval(($ta + $tb + $tc + $td)*100 + .5) / 100;
 	}
 //
-function mailAdmin($tit, $subject, $bottom, $top, $url)
+function mailAdmin($tit, $message, $bottom, $top, $url)
 	{
 	global $mailAdmin;
-	$rn = "\r\n";
-	$boundary = "-----=".md5(rand());
-	$body = '<b><a href="'.$url.'/uno.php" style="color:#000000;">'.$tit.'</a></b><br />'.$rn.$subject.$rn;
+	$body = '<b><a href="'.$url.'/uno.php" style="color:#000000;">'.$tit.'</a></b><br />'."\r\n".$message."\r\n";
 	$msgT = strip_tags($body);
 	$msgH = $top . $body . $bottom;
-	$sujet = $tit;
-	$header  = "From: ".$mailAdmin."<".$mailAdmin.">".$rn."Reply-To:".$mailAdmin."<".$mailAdmin.">";
-	$header.= "MIME-Version: 1.0".$rn;
-	$header.= "Content-Type: multipart/alternative;".$rn." boundary=\"$boundary\"".$rn;
-	$msg= $rn."--".$boundary.$rn;
-	$msg.= "Content-Type: text/plain; charset=\"utf-8\"".$rn;
-	$msg.= "Content-Transfer-Encoding: 8bit".$rn;
-	$msg.= $rn.$msgT.$rn;
-	$msg.= $rn."--".$boundary.$rn;
-	$msg.= "Content-Type: text/html; charset=\"utf-8\"".$rn;
-	$msg.= "Content-Transfer-Encoding: 8bit".$rn;
-	$msg.= $rn.$msgH.$rn;
-	$msg.= $rn."--".$boundary."--".$rn;
-	$msg.= $rn."--".$boundary."--".$rn;
-	if(mail($mailAdmin, stripslashes($tit), stripslashes($msg), $header)) return true;
-	else return false;
+	if(file_exists(dirname(__FILE__).'/../newsletter/PHPMailer/PHPMailerAutoload.php'))
+		{
+		// PHPMailer
+		require_once(dirname(__FILE__).'/../newsletter/PHPMailer/PHPMailerAutoload.php');
+		$phm = new PHPMailer();
+		$phm->CharSet = "UTF-8";
+		$phm->setFrom($mailAdmin);
+		$phm->addReplyTo($mailAdmin);
+		$phm->AddAddress($mailAdmin);
+		$phm->isHTML(true);
+		$phm->Subject = stripslashes($tit);
+		$phm->Body = stripslashes($msgH);		
+		$phm->AltBody = stripslashes($msgT);
+		if($phm->Send()) return true;
+		else return false;
+		}
+	else
+		{
+		$rn = "\r\n";
+		$boundary = "-----=".md5(rand());
+		$header  = "From: ".$mailAdmin."<".$mailAdmin.">".$rn."Reply-To:".$mailAdmin."<".$mailAdmin.">";
+		$header .= "MIME-Version: 1.0".$rn;
+		$header .= "Content-Type: multipart/alternative;".$rn." boundary=\"$boundary\"".$rn;
+		$msg = $rn."--".$boundary.$rn;
+		$msg .= "Content-Type: text/plain; charset=\"utf-8\"".$rn;
+		$msg .= "Content-Transfer-Encoding: 8bit".$rn;
+		$msg .= $rn.$msgT.$rn;
+		$msg .= $rn."--".$boundary.$rn;
+		$msg .= "Content-Type: text/html; charset=\"utf-8\"".$rn;
+		$msg .= "Content-Transfer-Encoding: 8bit".$rn;
+		$msg .= $rn.$msgH.$rn;
+		$msg .= $rn."--".$boundary."--".$rn;
+		$msg .= $rn."--".$boundary."--".$rn;
+		if(mail($mailAdmin, stripslashes($tit), stripslashes($msg), $header)) return true;
+		else return false;
+		}
 	}
 //
-function mailUser($dest, $sujet, $message, $bottom, $top, $url)
+function mailUser($dest, $tit, $message, $bottom, $top, $url)
 	{
 	global $mailAdmin;
-	$rn = "\r\n";
-	$boundary = "-----=".md5(rand());
-	$body = '<b><a href="'.$url.'" style="color:#000000;">'.$sujet.'</a></b><br />'.$rn.$message.'<br />'.$rn;
+	$body = '<b><a href="'.$url.'" style="color:#000000;">'.$tit.'</a></b><br />'."\r\n".$message.'<br />'."\r\n";
 	$msgT = strip_tags($body);
 	$msgH = $top . $body . $bottom;
-	$header = 'From: '.$mailAdmin.$rn.'Reply-To: '.$mailAdmin.$rn.'X-Mailer: PHP/'.phpversion().$rn;
-	$header.= "MIME-Version: 1.0".$rn;
-	$header.= "Content-Type: multipart/alternative;".$rn." boundary=\"$boundary\"".$rn;
-	$msg= $rn."--".$boundary.$rn;
-	$msg.= "Content-Type: text/plain; charset=\"utf-8\"".$rn;
-	$msg.= "Content-Transfer-Encoding: 8bit".$rn;
-	$msg.= $rn.$msgT.$rn;
-	$msg.= $rn."--".$boundary.$rn;
-	$msg.= "Content-Type: text/html; charset=\"utf-8\"".$rn;
-	$msg.= "Content-Transfer-Encoding: 8bit".$rn;
-	$msg.= $rn.$msgH.$rn;
-	$msg.= $rn."--".$boundary."--".$rn;
-	$msg.= $rn."--".$boundary."--".$rn;
-	if(mail($dest, stripslashes($sujet), $msg, $header)) return true;
-	else return false;
+	if(file_exists(dirname(__FILE__).'/../newsletter/PHPMailer/PHPMailerAutoload.php'))
+		{
+		// PHPMailer
+		require_once(dirname(__FILE__).'/../newsletter/PHPMailer/PHPMailerAutoload.php');
+		$phm = new PHPMailer();
+		$phm->CharSet = "UTF-8";
+		$phm->setFrom($mailAdmin);
+		$phm->addReplyTo($mailAdmin);
+		$phm->AddAddress($dest);
+		$phm->isHTML(true);
+		$phm->Subject = stripslashes($tit);
+		$phm->Body = stripslashes($msgH);		
+		$phm->AltBody = stripslashes($msgT);
+		if($phm->Send()) return true;
+		else return false;
+		}
+	else
+		{
+		$rn = "\r\n";
+		$boundary = "-----=".md5(rand());
+		$header = 'From: '.$mailAdmin.$rn.'Reply-To: '.$mailAdmin.$rn.'X-Mailer: PHP/'.phpversion().$rn;
+		$header .= "MIME-Version: 1.0".$rn;
+		$header .= "Content-Type: multipart/alternative;".$rn." boundary=\"$boundary\"".$rn;
+		$msg = $rn."--".$boundary.$rn;
+		$msg .= "Content-Type: text/plain; charset=\"utf-8\"".$rn;
+		$msg .= "Content-Transfer-Encoding: 8bit".$rn;
+		$msg .= $rn.$msgT.$rn;
+		$msg .= $rn."--".$boundary.$rn;
+		$msg .= "Content-Type: text/html; charset=\"utf-8\"".$rn;
+		$msg .= "Content-Transfer-Encoding: 8bit".$rn;
+		$msg .= $rn.$msgH.$rn;
+		$msg .= $rn."--".$boundary."--".$rn;
+		$msg .= $rn."--".$boundary."--".$rn;
+		if(mail($dest, stripslashes($tit), $msg, $header)) return true;
+		else return false;
+		}
 	}
 //
 ?>

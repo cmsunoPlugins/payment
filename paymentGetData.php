@@ -2,7 +2,7 @@
 function getPaypalOrder($id,$sdata)
 	{
 	$q = file_get_contents('../../data/_sdata-'.$sdata.'/_paypal/'.$id.'.json'); $a = json_decode($q,true);
-	$b = array(); $v=1; $w = 0;
+	$b = array(); $v = 1; $w = 0;
 	while(isset($a['item_name'.$v]))
 		{
 		if($a['item_name'.$v]!=T_('Shipping cost'))

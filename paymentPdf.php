@@ -1,14 +1,13 @@
 <?php
-if(!isset($_GET['k']) || !isset($_GET['s']) || !isset($_GET['t'])) {sleep(2);exit;}
+if(!isset($_GET['k']) || !isset($_GET['s']) || !isset($_GET['t']) || !isset($_GET['i'])) {sleep(2);exit;}
 ?>
 <?php
-$iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
-$b = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, 'payment', base64_decode($_GET['k']), MCRYPT_MODE_ECB, $iv);
+include('../../config.php');
+$b = openssl_decrypt(base64_decode($_GET['k']), 'AES-256-CBC', substr($Ukey,0,32), OPENSSL_RAW_DATA, base64_decode($_GET['i']));
 $b = rtrim($b, "\0");
 $b = explode('|',$b);
 if(!is_array($b)) {sleep(2);exit;}
 $id = $b[0]; $mail = $b[1]; $sys = $_GET['s'];
-include('../../config.php');
 if(!file_exists('../../data/_sdata-'.$sdata.'/_'.$sys.'/'.$id.'.json')) {sleep(2);exit;}
 include('lang/lang.php');
 include('paymentGetData.php');
