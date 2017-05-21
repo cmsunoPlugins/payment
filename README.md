@@ -33,6 +33,7 @@ Very usefull and powerfull.
 
 ### Versions ###
 
+* 1.1.2 - 21/05/2017 : Option to hide the CKEditor Add To Cart Button
 * 1.1.1 - 15/03/2017 :
 	* Use PHPMailer if Newsletter plugin exists
 	* Replace MCrypt by OpenSSL

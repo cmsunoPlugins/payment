@@ -128,6 +128,11 @@ if (isset($_POST['action']))
 				<h3><?php echo T_("Cart :");?></h3>
 				<table class="hForm">
 					<tr>
+						<td><label><?php echo T_("No Add To Cart button");?></label></td>
+						<td><input type="checkbox" name="addtocartoff" id="addtocartoff" /></td>
+						<td><em><?php echo T_("You don't want to use the CKEditor Add To Cart Button.");?></em></td>
+					</tr>
+					<tr>
 						<td><label><?php echo T_("Currency");?></label></td>
 						<td>
 							<select name="cur" id="cur">
@@ -210,6 +215,7 @@ if (isset($_POST['action']))
 		$a['taxin'] = $_POST['taxin'];
 		$a['taxout'] = $_POST['taxout'];
 		$a['ship'] = $_POST['ship'];
+		$a['addtocartoff'] = ($_POST['addtocartoff']?1:0);
 		$a['curr'] = $_POST['curr'];
 		$a['it'] = $_POST['it'];
 		$a['ali'] = $_POST['ali'];

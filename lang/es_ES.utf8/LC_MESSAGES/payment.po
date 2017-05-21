@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CmsUno\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-15 17:01+0100\n"
-"PO-Revision-Date: 2017-03-15 17:04+0100\n"
-"Last-Translator: malgrange <jacques.malgrange@gmail.com>\n"
+"POT-Creation-Date: 2017-05-21 13:03+0200\n"
+"PO-Revision-Date: 2017-05-21 13:05+0200\n"
+"Last-Translator: jacques Malgrange <contacter@boiteasite.fr>\n"
 "Language-Team: Jacques Malgrange <contacter@boiteasite.fr>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
@@ -15,10 +15,10 @@ msgstr ""
 "X-Poedit-KeywordsList: _;T_\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: iso-8859-1\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.12\n"
 "X-Poedit-SearchPath-0: ../../..\n"
 
-#: ../../../payment.php:22 ../../../payment.php:447
+#: ../../../payment.php:22 ../../../payment.php:453
 msgid "Archives"
 msgstr "Archivos"
 
@@ -34,7 +34,7 @@ msgstr "Configure"
 msgid "Orders"
 msgstr "Ordenes"
 
-#: ../../../payment.php:25 ../../../payment.php:472
+#: ../../../payment.php:25 ../../../payment.php:478
 #: ../../../paymentOrder.php:47 ../../../paymentPdf.php:61
 msgid "Order Details"
 msgstr "Detalles de pedidos"
@@ -103,7 +103,7 @@ msgstr "Payplug"
 msgid "Payplug Plugin needed. EXT mode must be activated."
 msgstr "Payplug Plugin necesario. Modo EXT debe estar activado."
 
-#: ../../../payment.php:45 ../../../payment.php:499
+#: ../../../payment.php:45 ../../../payment.php:505
 #: ../../../paymentOrder.php:74 ../../../paymentPdf.php:56
 msgid "Bank Transfer"
 msgstr "Transferencia"
@@ -112,7 +112,7 @@ msgstr "Transferencia"
 msgid "Enable the payment by bank transfer"
 msgstr "Habilitar el pago por transferencia"
 
-#: ../../../payment.php:50 ../../../payment.php:347 ../../../payment.php:498
+#: ../../../payment.php:50 ../../../payment.php:353 ../../../payment.php:504
 #: ../../../paymentOrder.php:73 ../../../paymentPdf.php:56
 msgid "Cheque"
 msgstr "Cheque"
@@ -169,7 +169,7 @@ msgid "A proportional tax is written with the sign"
 msgstr "Un impuesto proporcional se escribe con el signo"
 
 #: ../../../payment.php:79 ../../../payment.php:85 ../../../payment.php:91
-#: ../../../payment.php:97 ../../../payment.php:473 ../../../paymentInc.php:45
+#: ../../../payment.php:97 ../../../payment.php:479 ../../../paymentInc.php:45
 #: ../../../paymentOrder.php:48 ../../../paymentPdf.php:58
 msgid "Tax"
 msgstr "Impuestos"
@@ -207,7 +207,7 @@ msgstr "Los precios que aparecen :"
 msgid "On the site, the price of the item is displayed..."
 msgstr "En el sitio, se muestra el precio del artículo..."
 
-#: ../../../payment.php:123 ../../../payment.php:125 ../../../payment.php:484
+#: ../../../payment.php:123 ../../../payment.php:125 ../../../payment.php:490
 #: ../../../paymentGetData.php:8 ../../../paymentInc.php:48
 #: ../../../paymentInc.php:103 ../../../paymentInc.php:104
 #: ../../../paymentOrder.php:59 ../../../paymentPdf.php:93
@@ -219,92 +219,100 @@ msgid "Cart :"
 msgstr "Carrito :"
 
 #: ../../../payment.php:131
+msgid "No Add To Cart button"
+msgstr "No hay botón de Añadir al carrito"
+
+#: ../../../payment.php:133
+msgid "You don't want to use the CKEditor Add To Cart Button."
+msgstr "No desea utilizar el botón Añadir al carrito de CKEditor."
+
+#: ../../../payment.php:136
 msgid "Currency"
 msgstr "Moneda"
 
-#: ../../../payment.php:134
+#: ../../../payment.php:139
 msgid "Euro"
 msgstr "Euro"
 
-#: ../../../payment.php:135
+#: ../../../payment.php:140
 msgid "US Dollar"
 msgstr "Dolar US"
 
-#: ../../../payment.php:136
+#: ../../../payment.php:141
 msgid "Canadian Dollar"
 msgstr "Dolar canadiense"
 
-#: ../../../payment.php:137
+#: ../../../payment.php:142
 msgid "Pound Sterling"
 msgstr "Libra esterlina"
 
-#: ../../../payment.php:138
+#: ../../../payment.php:143
 msgid "Swiss Franc"
 msgstr "Franco suizo"
 
-#: ../../../payment.php:139
+#: ../../../payment.php:144
 msgid "Danish Krone"
 msgstr "Corona danesa"
 
-#: ../../../payment.php:140
+#: ../../../payment.php:145
 msgid "Norwegian Krone"
 msgstr "Corona noruega"
 
-#: ../../../payment.php:141
+#: ../../../payment.php:146
 msgid "Swedish Krona"
 msgstr "Corona sueca"
 
-#: ../../../payment.php:142
+#: ../../../payment.php:147
 msgid "Polish Zloty"
 msgstr "Zloty polaco"
 
-#: ../../../payment.php:143
+#: ../../../payment.php:148
 msgid "Russian Ruble"
 msgstr "Rublo ruso"
 
-#: ../../../payment.php:146
+#: ../../../payment.php:151
 msgid "What is the currency of payment."
 msgstr "¿Cuál es la moneda de pago?"
 
-#: ../../../payment.php:149
+#: ../../../payment.php:154
 msgid "Integration"
 msgstr "Integración"
 
-#: ../../../payment.php:152
+#: ../../../payment.php:157
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: ../../../payment.php:153
+#: ../../../payment.php:158
 msgid "Menu"
 msgstr "Menú"
 
-#: ../../../payment.php:156
+#: ../../../payment.php:161
 msgid "Use the shortcode [[paymentCart]] or use auto integration in the menu."
 msgstr ""
 "Utilice el shortcode [[paymentCart]] o utilizar la integración automática en "
 "el menú."
 
-#: ../../../payment.php:159
+#: ../../../payment.php:164
 msgid "Box alignment"
 msgstr "Alineación Box"
 
-#: ../../../payment.php:162
+#: ../../../payment.php:167
 msgid "Left"
 msgstr "Izquierda"
 
-#: ../../../payment.php:163
+#: ../../../payment.php:168
 msgid "Right"
 msgstr "Derecha"
 
-#: ../../../payment.php:166
+#: ../../../payment.php:171
 msgid "Use Right if the cart appears to the right of the window."
 msgstr "Utilice derecho si el carro aparece a la derecha de la ventana."
 
-#: ../../../payment.php:169
+#: ../../../payment.php:174
 msgid "Box color"
 msgstr "Color de la caja"
 
-#: ../../../payment.php:171
+#: ../../../payment.php:176
 msgid ""
 "Background color for the cart. HTML format (ex : #9f9f9f). Leave blank for "
 "automatic choice."
@@ -312,47 +320,47 @@ msgstr ""
 "Color de fondo para la cesta. Formato HTML (ejemplo: # 9f9f9f). Dejar en "
 "blanco para la opción automática."
 
-#: ../../../payment.php:174
+#: ../../../payment.php:179
 msgid "Icon color"
 msgstr "Color del icono"
 
-#: ../../../payment.php:177
+#: ../../../payment.php:182
 msgid "Black"
 msgstr "Negro"
 
-#: ../../../payment.php:178
+#: ../../../payment.php:183
 msgid "White"
 msgstr "Blanco"
 
-#: ../../../payment.php:181
+#: ../../../payment.php:186
 msgid "Color of the cart icon and the text."
 msgstr "El color del icono de la cesta y el texto."
 
-#: ../../../payment.php:184
+#: ../../../payment.php:189
 msgid "Save"
 msgstr "Guardar"
 
-#: ../../../payment.php:223
+#: ../../../payment.php:229
 msgid "Backup performed"
 msgstr "Copia de seguridad realizada"
 
-#: ../../../payment.php:224
+#: ../../../payment.php:230
 msgid "Impossible backup"
 msgstr "Copia de seguridad Imposible"
 
-#: ../../../payment.php:228
+#: ../../../payment.php:234
 msgid "List of orders"
 msgstr "Lista de órdenes"
 
-#: ../../../payment.php:266 ../../../paymentPdf.php:50
+#: ../../../payment.php:272 ../../../paymentPdf.php:50
 msgid "Date"
 msgstr "Fecha"
 
-#: ../../../payment.php:266
+#: ../../../payment.php:272
 msgid "Type"
 msgstr "Tipos"
 
-#: ../../../payment.php:266 ../../../payment.php:473 ../../../payment.php:493
+#: ../../../payment.php:272 ../../../payment.php:479 ../../../payment.php:499
 #: ../../../paymentInc.php:53 ../../../paymentInc.php:124
 #: ../../../paymentInc.php:137 ../../../paymentInc.php:138
 #: ../../../paymentInc.php:139 ../../../paymentOrder.php:48
@@ -361,141 +369,141 @@ msgstr "Tipos"
 msgid "Name"
 msgstr "Nombre"
 
-#: ../../../payment.php:266 ../../../payment.php:494 ../../../paymentInc.php:54
+#: ../../../payment.php:272 ../../../payment.php:500 ../../../paymentInc.php:54
 #: ../../../paymentInc.php:124 ../../../paymentInc.php:138
 #: ../../../paymentOrder.php:69 ../../../paymentPdf.php:109
 msgid "Address"
 msgstr "Dirección"
 
-#: ../../../payment.php:266
+#: ../../../payment.php:272
 msgid "Article"
 msgstr "Artículo"
 
-#: ../../../payment.php:266 ../../../payment.php:473
+#: ../../../payment.php:272 ../../../payment.php:479
 #: ../../../paymentOrder.php:48 ../../../paymentPdf.php:58
 msgid "Price"
 msgstr "Precio"
 
-#: ../../../payment.php:266 ../../../payment.php:385 ../../../payment.php:386
-#: ../../../payment.php:387 ../../../payment.php:504 ../../../payment.php:507
-#: ../../../payment.php:508
+#: ../../../payment.php:272 ../../../payment.php:391 ../../../payment.php:392
+#: ../../../payment.php:393 ../../../payment.php:510 ../../../payment.php:513
+#: ../../../payment.php:514
 msgid "Treated"
 msgstr "Tratada"
 
-#: ../../../payment.php:309 ../../../payment.php:335 ../../../payment.php:354
-#: ../../../payment.php:355 ../../../payment.php:356 ../../../payment.php:503
-#: ../../../payment.php:504 ../../../payment.php:506 ../../../payment.php:507
+#: ../../../payment.php:315 ../../../payment.php:341 ../../../payment.php:360
+#: ../../../payment.php:361 ../../../payment.php:362 ../../../payment.php:509
+#: ../../../payment.php:510 ../../../payment.php:512 ../../../payment.php:513
 msgid "Yes"
 msgstr "Si"
 
-#: ../../../payment.php:309 ../../../payment.php:335 ../../../payment.php:354
-#: ../../../payment.php:355 ../../../paymentOrder.php:82
+#: ../../../payment.php:315 ../../../payment.php:341 ../../../payment.php:360
+#: ../../../payment.php:361 ../../../paymentOrder.php:82
 msgid "Not treated"
 msgstr "No se trata"
 
-#: ../../../payment.php:348
+#: ../../../payment.php:354
 msgid "Transfer"
 msgstr "Transferencia"
 
-#: ../../../payment.php:354 ../../../paymentOrder.php:78
+#: ../../../payment.php:360 ../../../paymentOrder.php:78
 msgid "Not paid"
 msgstr "No pagado"
 
-#: ../../../payment.php:372 ../../../payment.php:503 ../../../payment.php:506
-#: ../../../payment.php:508 ../../../paymentOrder.php:81
+#: ../../../payment.php:378 ../../../payment.php:509 ../../../payment.php:512
+#: ../../../payment.php:514 ../../../paymentOrder.php:81
 msgid "Paid"
 msgstr "Pagado"
 
-#: ../../../payment.php:373 ../../../payment.php:375 ../../../payment.php:388
-#: ../../../payment.php:390 ../../../payment.php:404 ../../../payment.php:406
-#: ../../../payment.php:411 ../../../payment.php:417 ../../../payment.php:422
-#: ../../../payment.php:530 ../../../paymentOrder.php:27
+#: ../../../payment.php:379 ../../../payment.php:381 ../../../payment.php:394
+#: ../../../payment.php:396 ../../../payment.php:410 ../../../payment.php:412
+#: ../../../payment.php:417 ../../../payment.php:423 ../../../payment.php:428
+#: ../../../payment.php:536 ../../../paymentOrder.php:27
 #: ../../../paymentOrder.php:87
 msgid "Error"
 msgstr "Error"
 
-#: ../../../payment.php:401 ../../../payment.php:402 ../../../payment.php:403
-#: ../../../payment.php:508
+#: ../../../payment.php:407 ../../../payment.php:408 ../../../payment.php:409
+#: ../../../payment.php:514
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: ../../../payment.php:410
+#: ../../../payment.php:416
 msgid "Deleted"
 msgstr "Suprimido"
 
-#: ../../../payment.php:416
+#: ../../../payment.php:422
 msgid "Archived"
 msgstr "Archivado"
 
-#: ../../../payment.php:421
+#: ../../../payment.php:427
 msgid "Restored"
 msgstr "Restaurada"
 
-#: ../../../payment.php:453
+#: ../../../payment.php:459
 msgid "Restore"
 msgstr "Restaurar"
 
-#: ../../../payment.php:471 ../../../paymentInc.php:42
+#: ../../../payment.php:477 ../../../paymentInc.php:42
 #: ../../../paymentInc.php:80 ../../../paymentInc.php:103
 #: ../../../paymentInc.php:104 ../../../paymentMake.php:29
 #: ../../../paymentOrder.php:46 ../../../paymentPdf.php:44
 msgid "Order"
 msgstr "Solicitar"
 
-#: ../../../payment.php:473 ../../../paymentOrder.php:48
+#: ../../../payment.php:479 ../../../paymentOrder.php:48
 #: ../../../paymentPdf.php:46 ../../../paymentPdf.php:58
 msgid "Ref"
 msgstr "Ref"
 
-#: ../../../payment.php:473 ../../../paymentOrder.php:48
+#: ../../../payment.php:479 ../../../paymentOrder.php:48
 msgid "Quantity"
 msgstr "Cantidad"
 
-#: ../../../payment.php:473 ../../../payment.php:487 ../../../paymentInc.php:50
+#: ../../../payment.php:479 ../../../payment.php:493 ../../../paymentInc.php:50
 #: ../../../paymentInc.php:106 ../../../paymentInc.php:107
 #: ../../../paymentOrder.php:48 ../../../paymentOrder.php:62
 #: ../../../paymentPdf.php:58 ../../../paymentPdf.php:98
 msgid "Total"
 msgstr "Total"
 
-#: ../../../payment.php:481 ../../../paymentOrder.php:56
+#: ../../../payment.php:487 ../../../paymentOrder.php:56
 #: ../../../paymentPdf.php:87
 msgid "Subtotal"
 msgstr "Total parcial"
 
-#: ../../../payment.php:489 ../../../paymentOrder.php:64
+#: ../../../payment.php:495 ../../../paymentOrder.php:64
 #: ../../../paymentPdf.php:103
 msgid "Shipping address"
 msgstr "Dirección de envío"
 
-#: ../../../payment.php:495 ../../../paymentInc.php:55
+#: ../../../payment.php:501 ../../../paymentInc.php:55
 #: ../../../paymentInc.php:124 ../../../paymentInc.php:138
 #: ../../../paymentOrder.php:70 ../../../paymentPdf.php:113
 msgid "Mail"
 msgstr "Mail"
 
-#: ../../../payment.php:500 ../../../paymentOrder.php:75
+#: ../../../payment.php:506 ../../../paymentOrder.php:75
 #: ../../../paymentPdf.php:54
 msgid "Payment"
 msgstr "Pago"
 
-#: ../../../payment.php:501 ../../../payment.php:512
+#: ../../../payment.php:507 ../../../payment.php:518
 msgid "Are you sure ?"
 msgstr "¿Seguro?"
 
-#: ../../../payment.php:501
+#: ../../../payment.php:507
 msgid "Delete"
 msgstr "Borrar"
 
-#: ../../../payment.php:503 ../../../payment.php:504 ../../../payment.php:508
+#: ../../../payment.php:509 ../../../payment.php:510 ../../../payment.php:514
 msgid "No"
 msgstr "No"
 
-#: ../../../payment.php:511 ../../../paymentOrder.php:84
+#: ../../../payment.php:517 ../../../paymentOrder.php:84
 msgid "Invoice in PDF"
 msgstr "Factura en PDF"
 
-#: ../../../payment.php:512
+#: ../../../payment.php:518
 msgid "Archive"
 msgstr "Archivo"
 

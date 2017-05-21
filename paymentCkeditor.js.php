@@ -2,6 +2,20 @@
 // CMSUno
 // Plugin Payment
 //
+UconfigNum++;
+
+<?php $a = 0;
+if(file_exists(dirname(__FILE__).'/../../data/busy.json'))
+	{
+	$q = file_get_contents(dirname(__FILE__).'/../../data/busy.json'); $b = json_decode($q,true); $Ubusy = isset($b['nom'])?$b['nom']:false;
+	if($Ubusy && file_exists(dirname(__FILE__).'/../../data/'.$Ubusy.'/payment.json'))
+		{
+		$q = file_get_contents(dirname(__FILE__).'/../../data/'.$Ubusy.'/payment.json');
+		$a = json_decode($q,true);
+		}
+	}
+if(empty($a['addtocartoff'])) { ?>
+
 var paymentTaa='',paymentTab='',paymentTac='',paymentTad='',paymentTda='',paymentTdb='',paymentTdc='',paymentTdd='',paymentTin='',paymentCurr='';
 jQuery(document).ready(function(){
 	jQuery.getJSON("uno/data/"+Ubusy+"/payment.json?r="+Math.random(),function(r){
@@ -18,9 +32,6 @@ jQuery(document).ready(function(){
 		if(r.taxin!=undefined)paymentTin=r.taxin;
 	});
 });
-
-UconfigNum++;
-
 CKEDITOR.plugins.addExternal('addtocart',UconfigFile[UconfigNum-1]+'/../addtocart/');
 CKEDITOR.editorConfig = function(config){
 	config.extraPlugins += ',addtocart';
@@ -28,3 +39,11 @@ CKEDITOR.editorConfig = function(config){
 	config.extraAllowedContent += '; a[alt,class,href,onclick,title](addtocart)';
 	if(UconfigFile.length>UconfigNum)config.customConfig=UconfigFile[UconfigNum];
 };
+
+<?php } else { ?>
+
+CKEDITOR.editorConfig = function(config){
+	if(UconfigFile.length>UconfigNum)config.customConfig=UconfigFile[UconfigNum];
+};
+
+<?php } ?>
