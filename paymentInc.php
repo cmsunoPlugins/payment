@@ -2,7 +2,7 @@
 if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH'])!='xmlhttprequest') {sleep(2);exit;} // ajax request
 ?>
 <?php
-if (isset($_POST['a']))
+if(isset($_POST['a']))
 	{
 	include('../../config.php');
 	include('lang/lang.php');
@@ -56,6 +56,7 @@ if (isset($_POST['a']))
 			$o .= '<div style="text-align:center">';
 			if(isset($a1['method']['plug']) && $a1['method']['plug']) $o .= '<a href="JavaScript:void(0);" id="popPlug"><img src="uno/plugins/payment/img/payplug76.png" alt="'.T_("Secure payment by card").'" title="'.T_("Secure payment by card").'" class="logo" /></a>';
 			if(isset($a1['method']['ppal']) && $a1['method']['ppal']) $o .= '<a href="JavaScript:void(0);" id="popPpal"><img src="uno/plugins/payment/img/paypal76.png" alt="'.T_("Pay with your Paypal account").'" title="'.T_("Pay with your Paypal account").'" class="logo" /></a>';
+			if(isset($a1['method']['coin']) && $a1['method']['coin']) $o .= '<a href="JavaScript:void(0);" id="popCoin"><img src="uno/plugins/payment/img/paycoin76.png" alt="'.T_("Bitcoin payment").'" title="'.T_("Bitcoin payment").'" class="logo" /></a>';
 			if(isset($a1['method']['cheq']) && $a1['method']['cheq']) $o .= '<a href="JavaScript:void(0);" id="popCheq"><img src="uno/plugins/payment/img/cheque76.png" alt="'.T_("Pay by cheque").'" title="'.T_("Pay by cheque").'" class="logo" /></a>';
 			if(isset($a1['method']['vire']) && $a1['method']['vire']) $o .= '<a href="JavaScript:void(0);" id="popVire"><img src="uno/plugins/payment/img/virement76.png" alt="'.T_("Bank transfer").'" title="'.T_("Bank transfer").'" class="logo" /></a>';
 			$o .= '</div><div id="popAlert"></div>';
@@ -81,6 +82,7 @@ if (isset($_POST['a']))
 			$cartJson = '';
 			$q1 = file_get_contents('../../data/'.$Ubusy.'/payment.json');
 			$a1 = json_decode($q1,true);
+			if(empty($a1['ship'])) $a1['ship'] = 0;
 			$q2 = file_get_contents('../../data/'.$Ubusy.'/addtocart.json');
 			$a2 = json_decode($q2,true);
 			$n = 0; $p = 0; $u = '<p style="text-align:right;">'.date("d/m/Y H:i").'</p><p>'; $ua = ''; $cartJson = '{"prod":{';
@@ -102,7 +104,7 @@ if (isset($_POST['a']))
 				}
 			$o = '<div style="text-align:right">'.T_('Order').' : '.$p.' '.$a1['curr'].'<br />'.T_('Shipping cost').' : '.$a1['ship'].' '.$a1['curr'].'<br />';
 			$u .= '</p><p>'.T_('Order').' : '.$p.' '.$a1['curr'].'<br />'.T_('Shipping cost').' : '.$a1['ship'].' '.$a1['curr'].'<br />';
-			$p += $a1['ship'];
+			$p += floatval($a1['ship']);
 			$o .= T_("Total").' : '.$p.' ' .$a1['curr'].'</div>';
 			$u .= T_("Total").'<strong> : '.$p.' ' .$a1['curr'].'</strong></p>';
 			$u = str_replace(".",",",$u);
@@ -201,15 +203,15 @@ function mailAdmin($tit, $message, $bottom, $top, $url)
 		// PHPMailer
 		require_once(dirname(__FILE__).'/../newsletter/PHPMailer/PHPMailerAutoload.php');
 		$phm = new PHPMailer();
-		$phm->CharSet = "UTF-8";
+		$phm->charSet = "UTF-8";
 		$phm->setFrom($mailAdmin);
 		$phm->addReplyTo($mailAdmin);
-		$phm->AddAddress($mailAdmin);
+		$phm->addAddress($mailAdmin);
 		$phm->isHTML(true);
-		$phm->Subject = stripslashes($tit);
-		$phm->Body = stripslashes($msgH);		
-		$phm->AltBody = stripslashes($msgT);
-		if($phm->Send()) return true;
+		$phm->subject = stripslashes($tit);
+		$phm->body = stripslashes($msgH);		
+		$phm->altBody = stripslashes($msgT);
+		if($phm->send()) return true;
 		else return false;
 		}
 	else
@@ -245,15 +247,15 @@ function mailUser($dest, $tit, $message, $bottom, $top, $url)
 		// PHPMailer
 		require_once(dirname(__FILE__).'/../newsletter/PHPMailer/PHPMailerAutoload.php');
 		$phm = new PHPMailer();
-		$phm->CharSet = "UTF-8";
+		$phm->charSet = "UTF-8";
 		$phm->setFrom($mailAdmin);
 		$phm->addReplyTo($mailAdmin);
-		$phm->AddAddress($dest);
+		$phm->addAddress($dest);
 		$phm->isHTML(true);
-		$phm->Subject = stripslashes($tit);
-		$phm->Body = stripslashes($msgH);		
-		$phm->AltBody = stripslashes($msgT);
-		if($phm->Send()) return true;
+		$phm->subject = stripslashes($tit);
+		$phm->body = stripslashes($msgH);		
+		$phm->altBody = stripslashes($msgT);
+		if($phm->send()) return true;
 		else return false;
 		}
 	else

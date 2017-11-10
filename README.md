@@ -33,6 +33,7 @@ Very usefull and powerfull.
 
 ### Versions ###
 
+* 1.1.3 - 10/11/2017 : Add Gateway with Bitcoin Paycoin plugin
 * 1.1.2 - 21/05/2017 : Option to hide the CKEditor Add To Cart Button
 * 1.1.1 - 15/03/2017 :
 	* Use PHPMailer if Newsletter plugin exists

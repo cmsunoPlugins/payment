@@ -52,6 +52,7 @@ function paymentBuy(){
 			unoPop(a[1],0);
 			b=document.getElementById("popPlug");if(b)b.onclick=function(){var c=e(0),h=g(a[0],1);if(c==0)payplugCart(h);else d(c);};
 			b=document.getElementById("popPpal");if(b)b.onclick=function(){var c=e(0),h=g(a[0],1);if(c==0)paypalCart(h);else d(c);};
+			b=document.getElementById("popCoin");if(b)b.onclick=function(){var c=e(0),h=g(a[0],1);if(c==0)paycoinCart(h);else d(c);};
 			b=document.getElementById("popCheq");if(b)b.onclick=function(){var c=e(0),h=g(a[0],0);if(c==0)paymentCVCart(h,0);else d(c);};
 			b=document.getElementById("popVire");if(b)b.onclick=function(){var c=e(0),h=g(a[0],0);if(c==0)paymentCVCart(h,1);else d(c);};
 		}
@@ -60,7 +61,9 @@ function paymentBuy(){
 	document.getElementById("cartBox").style.display='none';
 }
 function paymentGetPrice(){
-	var x=new XMLHttpRequest();x.open('POST','uno/data/'+Ubusy+'/addtocart.json');x.setRequestHeader('Content-type','application/x-www-form-urlencoded;charset=utf-8');
+	var x=new XMLHttpRequest();
+	x.open('POST','uno/data/'+Ubusy+'/addtocart.json');
+	x.setRequestHeader('Content-type','application/x-www-form-urlencoded;charset=utf-8');
 	x.onreadystatechange=function(){
 		if(x.readyState==4&&x.status==200&&x.responseText){
 			p=document.getElementById('support');
@@ -74,7 +77,8 @@ function paymentGetPrice(){
 }
 function paymentCVCart(f,g){
 	document.body.removeChild(document.getElementById('unoPop'));
-	x=new XMLHttpRequest();x.open('POST','uno/plugins/payment/paymentInc.php',true),params='a=cv&b='+Ubusy+'&c='+f+'&d='+(g==0?'cheq':'vire');
+	x=new XMLHttpRequest();
+	x.open('POST','uno/plugins/payment/paymentInc.php',true),params='a=cv&b='+Ubusy+'&c='+f+'&d='+(g==0?'cheq':'vire');
 	x.setRequestHeader('Content-type','application/x-www-form-urlencoded;charset=utf-8');
 	x.setRequestHeader('Content-length',params.length);
 	x.setRequestHeader('X-Requested-With','XMLHttpRequest');
