@@ -68,6 +68,9 @@ function getPayplugOrder($id,$sdata)
 	$b['id'] = $id;
 	return $b;
 	}
+function getPaycoinOrder($id,$sdata)
+	{
+	}
 function getPaymentOrder($id,$sdata)
 	{
 	$q = file_get_contents('../../data/_sdata-'.$sdata.'/_payment/'.$id.'.json'); $a = json_decode($q,true);

@@ -42,6 +42,11 @@ if (isset($_POST['action']))
 						<td><em><?php echo T_("Payplug Plugin needed. EXT mode must be activated.");?></em></td>
 					</tr>
 					<tr>
+						<td><label><?php echo T_("PayCoin");?></label></td>
+						<td><input type="checkbox" class="input" name="pmo" id="pmo" /></td>
+						<td><em><?php echo T_("Accept Bitcoin Payment. Paycoin Plugin needed and activated.");?></em></td>
+					</tr>
+					<tr>
 						<td><label><?php echo T_("Bank Transfer");?></label></td>
 						<td><input type="checkbox" class="input" name="pmv" id="pmv" /></td>
 						<td><em><?php echo T_("Enable the payment by bank transfer");?></em></td>
@@ -202,6 +207,7 @@ if (isset($_POST['action']))
 		else $a = Array();
 		$a['method']['ppal'] = $_POST['ppal'];
 		$a['method']['plug'] = $_POST['plug'];
+		$a['method']['coin'] = $_POST['coin'];
 		$a['method']['vire'] = $_POST['vire'];
 		$a['method']['cheq'] = $_POST['cheq'];
 		$a['taa'] = $_POST['taa'];
@@ -473,6 +479,7 @@ if (isset($_POST['action']))
 			$a = array(); $o = ''; $typ = ''; $p = 0; $tax = 0;
 			if($_POST['sys']=='paypal') $a = getPaypalOrder($_POST['id'],$sdata);
 			else if($_POST['sys']=='payplug') $a = getPayplugOrder($_POST['id'],$sdata);
+			else if($_POST['sys']=='paycoin') $a = getPaycoinOrder($_POST['id'],$sdata);
 			else if($_POST['sys']=='payment') $a = getPaymentOrder($_POST['id'],$sdata);
 			$o .= '<p>'.T_("Order").' : '.$_POST['id']. ' - '.date("d/m/Y H:i",$a['time']).'</p>';
 			$o .= '<h3>'.T_("Order Details").'</h3>';

@@ -6,6 +6,7 @@ function f_save_payment(){
 	jQuery(document).ready(function(){
 		var ppal=document.getElementById('pml').checked?1:0;
 		var plug=document.getElementById('pmg').checked?1:0;
+		var coin=document.getElementById('pmo').checked?1:0;
 		var vire=document.getElementById('pmv').checked?1:0;
 		var cheq=document.getElementById('pmc').checked?1:0;
 		var adre=document.getElementById("pma").value;
@@ -29,7 +30,7 @@ function f_save_payment(){
 		var ali=document.getElementById("ali").options[document.getElementById("ali").selectedIndex].value;
 		var col=document.getElementById("col").value;
 		var ico=document.getElementById("ico").options[document.getElementById("ico").selectedIndex].value;
-		jQuery.post('uno/plugins/payment/payment.php',{'action':'save','unox':Unox,'ppal':ppal,'plug':plug,'vire':vire,'cheq':cheq,'adre':adre,'own':own,'iban':iban,'bic':bic,'taa':taa,'tab':tab,'tac':tac,'tad':tad,'tda':tda,'tdb':tdb,'tdc':tdc,'tdd':tdd,'taxin':taxin,'taxout':taxout,'ship':ship,'addtocartoff':off,'curr':curr,'it':it,'ali':ali,'col':col,'ico':ico},function(r){
+		jQuery.post('uno/plugins/payment/payment.php',{'action':'save','unox':Unox,'ppal':ppal,'plug':plug,'coin':coin,'vire':vire,'cheq':cheq,'adre':adre,'own':own,'iban':iban,'bic':bic,'taa':taa,'tab':tab,'tac':tac,'tad':tad,'tda':tda,'tdb':tdb,'tdc':tdc,'tdd':tdd,'taxin':taxin,'taxout':taxout,'ship':ship,'addtocartoff':off,'curr':curr,'it':it,'ali':ali,'col':col,'ico':ico},function(r){
 			f_alert(r);
 		});
 	});
@@ -39,6 +40,7 @@ function f_load_payment(){
 		jQuery.getJSON("uno/data/"+Ubusy+"/payment.json?r="+Math.random(),function(data){
 			if(data.method.ppal==1)document.getElementById('pml').checked=true;else document.getElementById('pml').checked=false;
 			if(data.method.plug==1)document.getElementById('pmg').checked=true;else document.getElementById('pmg').checked=false;
+			if(data.method.coin==1)document.getElementById('pmo').checked=true;else document.getElementById('pmo').checked=false;
 			if(data.method.vire==1)document.getElementById('pmv').checked=true;else document.getElementById('pmv').checked=false;
 			if(data.method.cheq==1)document.getElementById('pmc').checked=true;else document.getElementById('pmc').checked=false;
 			if(data.adre!=undefined)document.getElementById('pma').value=data.adre;

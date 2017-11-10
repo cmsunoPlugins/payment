@@ -24,6 +24,7 @@ if(file_exists('data/'.$Ubusy.'/payment.json'))
 	$tmp1 = ''; // version directe (le panier est en ajax)
 	if(isset($a1['method']['plug']) && $a1['method']['plug']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payplugCart(paymentC);"><img src="uno/plugins/payment/img/payplug76.png" class="logo" /></a>';
 	if(isset($a1['method']['ppal']) && $a1['method']['ppal']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="paypalCart(paymentC);"><img src="uno/plugins/payment/img/paypal76.png" class="logo" /></a>';
+	if(isset($a1['method']['coin']) && $a1['method']['coin']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="paycoinCart(paymentC);"><img src="uno/plugins/payment/img/paycoin76.png" class="logo" /></a>';
 	if(isset($a1['method']['cheq']) && $a1['method']['cheq']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payCheqCart(paymentC);"><img src="uno/plugins/payment/img/cheque76.png" class="logo" /></a>';
 	if(isset($a1['method']['vire']) && $a1['method']['vire']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payVireCart(paymentC);"><img src="uno/plugins/payment/img/virement76.png" class="logo" /></a>';
 	$tmp = "<script type=\"text/javascript\">var paymentC,paymentBtn='".T_('Order')."';function paymentCart(f){paymentC=f;var g=eval('('+f+')');if(g['prod']){unoPop('".$tmp1."',0);}};</script>"."\r\n";
