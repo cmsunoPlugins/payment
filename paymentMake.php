@@ -2,13 +2,13 @@
 if (!isset($_SESSION['cmsuno'])) exit();
 ?>
 <?php
-if(file_exists('data/'.$Ubusy.'/payment.json'))
+if(file_exists('data/payment.json'))
 	{
 	// JSON : {"prod":{"0":{"n":"clef de 12","p":8.5,"i":"","q":1},"1":{"n":"tournevis","p":1.5,"i":"","q":2},"2":{"n":"papier craft","p":0.21,"i":"","q":30}}}
 	// n=nom, p=prix, i=ID, q=quantite
 	// Cookie format : nom|quantite||nom|quantite||nom|quantite||
 	// OK : ?payplug=ok&digit=mapage|monplugin|123456789123
-	$q1 = file_get_contents('data/'.$Ubusy.'/payment.json');
+	$q1 = file_get_contents('data/payment.json');
 	$a1 = json_decode($q1,true);
 	$it = (isset($a1['it'])?$a1['it']:'shortcode');
 	$ali = (isset($a1['ali'])?$a1['ali']:'left');
@@ -22,11 +22,12 @@ if(file_exists('data/'.$Ubusy.'/payment.json'))
 .cartTable .button{float:right;width:auto;margin:0;background:-moz-linear-gradient(center top,#f3f3f3,#dddddd);background:-webkit-gradient(linear,left top,left bottom,from(#f3f3f3),to(#dddddd));background: -o-linear-gradient(top,#f3f3f3,#dddddd);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr="#f3f3f3",EndColorStr="#dddddd");border-color:#000;border-width:1px;-moz-border-radius:4px;-webkit-border-radius:4px;color:#333;cursor:pointer;padding:4px 7px;font-size:1em;line-height:1.1em;}
 .cartTable .button:hover{background:#ddd;}'."\r\n";
 	$tmp1 = ''; // version directe (le panier est en ajax)
-	if(isset($a1['method']['plug']) && $a1['method']['plug']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payplugCart(paymentC);"><img src="uno/plugins/payment/img/payplug76.png" class="logo" /></a>';
-	if(isset($a1['method']['ppal']) && $a1['method']['ppal']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="paypalCart(paymentC);"><img src="uno/plugins/payment/img/paypal76.png" class="logo" /></a>';
-	if(isset($a1['method']['coin']) && $a1['method']['coin']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="paycoinCart(paymentC);"><img src="uno/plugins/payment/img/paycoin76.png" class="logo" /></a>';
-	if(isset($a1['method']['cheq']) && $a1['method']['cheq']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payCheqCart(paymentC);"><img src="uno/plugins/payment/img/cheque76.png" class="logo" /></a>';
-	if(isset($a1['method']['vire']) && $a1['method']['vire']) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payVireCart(paymentC);"><img src="uno/plugins/payment/img/virement76.png" class="logo" /></a>';
+	foreach($a1['method'] as $k=>$v)
+		{
+		if($k=='cheq' && $v) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payCheqCart(paymentC);"><img src="uno/plugins/payment/img/cheque-btn.png" class="logo" /></a>';
+		else if($k=='vire' && $v) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payVireCart(paymentC);"><img src="uno/plugins/payment/img/virement-btn.png" class="logo" /></a>';
+		else if(isset($Ua['plug'][$k]) && $v) $tmp1 .= '<a href="JavaScript:void(0);" onClick="'.$k.'Cart(paymentC);"><img src="uno/plugins/'.$k.'/img/'.$k.'-btn.png" class="logo" /></a>';
+		}
 	$tmp = "<script type=\"text/javascript\">var paymentC,paymentBtn='".T_('Order')."';function paymentCart(f){paymentC=f;var g=eval('('+f+')');if(g['prod']){unoPop('".$tmp1."',0);}};</script>"."\r\n";
 	if(strpos($Uhtml.$Ucontent,'[[paymentCart]]')!==false || strpos($Uhtml.$Ucontent,'paymentAddC')!==false)
 		{

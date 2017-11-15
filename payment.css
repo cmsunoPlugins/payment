@@ -9,3 +9,4 @@ table.paymentTO td.paymentTN:nth-child(2){color:inherit;}
 .paymentListArchiv{float:left;width:24%;cursor:pointer;text-decoration:underline;}
 #paymentArchData{margin-bottom:10px;}
 #paymentArchiv{margin:15px 10px;}
+#payExt{text-transform:uppercase;padding:0 10px;font-weight:700;}

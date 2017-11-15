@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CmsUno\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-21 13:03+0200\n"
-"PO-Revision-Date: 2017-05-21 13:05+0200\n"
+"POT-Creation-Date: 2017-11-15 10:20+0100\n"
+"PO-Revision-Date: 2017-11-15 10:21+0100\n"
 "Last-Translator: jacques Malgrange <contacter@boiteasite.fr>\n"
 "Language-Team: Jacques Malgrange <contacter@boiteasite.fr>\n"
 "Language: es_ES\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 1.8.12\n"
 "X-Poedit-SearchPath-0: ../../..\n"
 
-#: ../../../payment.php:22 ../../../payment.php:453
+#: ../../../payment.php:22 ../../../payment.php:446
 msgid "Archives"
 msgstr "Archivos"
 
@@ -34,7 +34,7 @@ msgstr "Configure"
 msgid "Orders"
 msgstr "Ordenes"
 
-#: ../../../payment.php:25 ../../../payment.php:478
+#: ../../../payment.php:25 ../../../payment.php:472
 #: ../../../paymentOrder.php:47 ../../../paymentPdf.php:61
 msgid "Order Details"
 msgstr "Detalles de pedidos"
@@ -88,231 +88,223 @@ msgid "Active payment :"
 msgstr "Pago activo :"
 
 #: ../../../payment.php:35
-msgid "Paypal"
-msgstr "Paypal"
+msgid "External payment"
+msgstr "Pago externo"
 
 #: ../../../payment.php:37
-msgid "Paypal Plugin needed. EXT mode must be activated."
-msgstr "PayPal Plugin necesario. Modo EXT debe estar activado."
+msgid "Payment enabled with another plugin (Paypal...)."
+msgstr "Pago habilitado con otro plugin (Paypal ...)."
 
-#: ../../../payment.php:40
-msgid "Payplug"
-msgstr "Payplug"
-
-#: ../../../payment.php:42
-msgid "Payplug Plugin needed. EXT mode must be activated."
-msgstr "Payplug Plugin necesario. Modo EXT debe estar activado."
-
-#: ../../../payment.php:45 ../../../payment.php:505
+#: ../../../payment.php:40 ../../../payment.php:499
 #: ../../../paymentOrder.php:74 ../../../paymentPdf.php:56
 msgid "Bank Transfer"
 msgstr "Transferencia"
 
-#: ../../../payment.php:47
+#: ../../../payment.php:42
 msgid "Enable the payment by bank transfer"
 msgstr "Habilitar el pago por transferencia"
 
-#: ../../../payment.php:50 ../../../payment.php:353 ../../../payment.php:504
+#: ../../../payment.php:45 ../../../payment.php:346 ../../../payment.php:498
 #: ../../../paymentOrder.php:73 ../../../paymentPdf.php:56
 msgid "Cheque"
 msgstr "Cheque"
 
-#: ../../../payment.php:52
+#: ../../../payment.php:47
 msgid "Enable the payment by cheque"
 msgstr "Habilitar el pago por cheque"
 
-#: ../../../payment.php:55
+#: ../../../payment.php:50
 msgid "Payment Address"
 msgstr "Dirección de Pago"
 
-#: ../../../payment.php:57
+#: ../../../payment.php:52
 msgid "Cheque only. What name-address should the payment be sent ?"
 msgstr "Cheque solamente. ¿Qué nombre-dirección se debe enviar el pago?"
 
-#: ../../../payment.php:60
+#: ../../../payment.php:55
 msgid "Account owner"
 msgstr "Propietario de la cuenta"
 
-#: ../../../payment.php:62
+#: ../../../payment.php:57
 msgid "Cheque and Bank transfer. Cheque payable to (name, society...)"
 msgstr ""
 "Cheque Transferencia y el Banco. Cheque a nombre de (nombre, sociedad ...)"
 
-#: ../../../payment.php:65 ../../../paymentInc.php:137
-#: ../../../paymentInc.php:139
+#: ../../../payment.php:60 ../../../paymentInc.php:140
+#: ../../../paymentInc.php:142
 msgid "IBAN"
 msgstr "IBAN"
 
-#: ../../../payment.php:67
+#: ../../../payment.php:62
 msgid "Bank transfer only. International Bank Account Number"
 msgstr "Sólo las transferencias. Numero de cuenta de Banco Internacional"
 
-#: ../../../payment.php:70 ../../../paymentInc.php:137
-#: ../../../paymentInc.php:139
+#: ../../../payment.php:65 ../../../paymentInc.php:140
+#: ../../../paymentInc.php:142
 msgid "BIC"
 msgstr "BIC"
 
-#: ../../../payment.php:72
+#: ../../../payment.php:67
 msgid "Bank transfer only. Bank Identification Code"
 msgstr "Sólo las transferencias. Banco Código de identificación"
 
-#: ../../../payment.php:75
+#: ../../../payment.php:70
 msgid "Tax and shipping :"
 msgstr "Impuestos y envío :"
 
-#: ../../../payment.php:76
+#: ../../../payment.php:71
 msgid "You can create up to 4 fixed or proportional taxes."
 msgstr "Puede crear hasta 4 impuestos fijos o proporcionales."
 
-#: ../../../payment.php:76
+#: ../../../payment.php:71
 msgid "A proportional tax is written with the sign"
 msgstr "Un impuesto proporcional se escribe con el signo"
 
-#: ../../../payment.php:79 ../../../payment.php:85 ../../../payment.php:91
-#: ../../../payment.php:97 ../../../payment.php:479 ../../../paymentInc.php:45
+#: ../../../payment.php:74 ../../../payment.php:80 ../../../payment.php:86
+#: ../../../payment.php:92 ../../../payment.php:473 ../../../paymentInc.php:45
 #: ../../../paymentOrder.php:48 ../../../paymentPdf.php:58
 msgid "Tax"
 msgstr "Impuestos"
 
-#: ../../../payment.php:81 ../../../payment.php:87 ../../../payment.php:93
-#: ../../../payment.php:99
+#: ../../../payment.php:76 ../../../payment.php:82 ../../../payment.php:88
+#: ../../../payment.php:94
 msgid "Enabled by default"
 msgstr "Habilitado por defecto"
 
-#: ../../../payment.php:82
+#: ../../../payment.php:77
 msgid "Example : Fixed (0.55$) => 0.55 ; Proportional (19.6%) => 19.6%"
 msgstr "Ejemplo : Fijo (0,55 $) => 0,55 ; Proporcional (19.6%) => 19,6%"
 
-#: ../../../payment.php:103
+#: ../../../payment.php:98
 msgid "I enter my prices :"
 msgstr "Entro en mis precios :"
 
-#: ../../../payment.php:106 ../../../payment.php:116
+#: ../../../payment.php:101 ../../../payment.php:111
 msgid "Tax included"
 msgstr "Impuesto incluido"
 
-#: ../../../payment.php:107 ../../../payment.php:117
+#: ../../../payment.php:102 ../../../payment.php:112
 msgid "Duty free"
 msgstr "Libre de impuestos"
 
-#: ../../../payment.php:110
+#: ../../../payment.php:105
 msgid "When I set the price of an item, the tax is ..."
 msgstr "Cuando me puse el precio de un artículo, el impuesto es ..."
 
-#: ../../../payment.php:113
+#: ../../../payment.php:108
 msgid "Prices displayed :"
 msgstr "Los precios que aparecen :"
 
-#: ../../../payment.php:120
+#: ../../../payment.php:115
 msgid "On the site, the price of the item is displayed..."
 msgstr "En el sitio, se muestra el precio del artículo..."
 
-#: ../../../payment.php:123 ../../../payment.php:125 ../../../payment.php:490
+#: ../../../payment.php:118 ../../../payment.php:120 ../../../payment.php:484
 #: ../../../paymentGetData.php:8 ../../../paymentInc.php:48
-#: ../../../paymentInc.php:103 ../../../paymentInc.php:104
+#: ../../../paymentInc.php:106 ../../../paymentInc.php:107
 #: ../../../paymentOrder.php:59 ../../../paymentPdf.php:93
 msgid "Shipping cost"
 msgstr "Costo de envío"
 
-#: ../../../payment.php:128
+#: ../../../payment.php:123
 msgid "Cart :"
 msgstr "Carrito :"
 
-#: ../../../payment.php:131
+#: ../../../payment.php:126
 msgid "No Add To Cart button"
 msgstr "No hay botón de Añadir al carrito"
 
-#: ../../../payment.php:133
+#: ../../../payment.php:128
 msgid "You don't want to use the CKEditor Add To Cart Button."
 msgstr "No desea utilizar el botón Añadir al carrito de CKEditor."
 
-#: ../../../payment.php:136
+#: ../../../payment.php:131
 msgid "Currency"
 msgstr "Moneda"
 
-#: ../../../payment.php:139
+#: ../../../payment.php:134
 msgid "Euro"
 msgstr "Euro"
 
-#: ../../../payment.php:140
+#: ../../../payment.php:135
 msgid "US Dollar"
 msgstr "Dolar US"
 
-#: ../../../payment.php:141
+#: ../../../payment.php:136
 msgid "Canadian Dollar"
 msgstr "Dolar canadiense"
 
-#: ../../../payment.php:142
+#: ../../../payment.php:137
 msgid "Pound Sterling"
 msgstr "Libra esterlina"
 
-#: ../../../payment.php:143
+#: ../../../payment.php:138
 msgid "Swiss Franc"
 msgstr "Franco suizo"
 
-#: ../../../payment.php:144
+#: ../../../payment.php:139
 msgid "Danish Krone"
 msgstr "Corona danesa"
 
-#: ../../../payment.php:145
+#: ../../../payment.php:140
 msgid "Norwegian Krone"
 msgstr "Corona noruega"
 
-#: ../../../payment.php:146
+#: ../../../payment.php:141
 msgid "Swedish Krona"
 msgstr "Corona sueca"
 
-#: ../../../payment.php:147
+#: ../../../payment.php:142
 msgid "Polish Zloty"
 msgstr "Zloty polaco"
 
-#: ../../../payment.php:148
+#: ../../../payment.php:143
 msgid "Russian Ruble"
 msgstr "Rublo ruso"
 
-#: ../../../payment.php:151
+#: ../../../payment.php:146
 msgid "What is the currency of payment."
 msgstr "¿Cuál es la moneda de pago?"
 
-#: ../../../payment.php:154
+#: ../../../payment.php:149
 msgid "Integration"
 msgstr "Integración"
 
-#: ../../../payment.php:157
+#: ../../../payment.php:152
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: ../../../payment.php:158
+#: ../../../payment.php:153
 msgid "Menu"
 msgstr "Menú"
 
-#: ../../../payment.php:161
+#: ../../../payment.php:156
 msgid "Use the shortcode [[paymentCart]] or use auto integration in the menu."
 msgstr ""
 "Utilice el shortcode [[paymentCart]] o utilizar la integración automática en "
 "el menú."
 
-#: ../../../payment.php:164
+#: ../../../payment.php:159
 msgid "Box alignment"
 msgstr "Alineación Box"
 
-#: ../../../payment.php:167
+#: ../../../payment.php:162
 msgid "Left"
 msgstr "Izquierda"
 
-#: ../../../payment.php:168
+#: ../../../payment.php:163
 msgid "Right"
 msgstr "Derecha"
 
-#: ../../../payment.php:171
+#: ../../../payment.php:166
 msgid "Use Right if the cart appears to the right of the window."
 msgstr "Utilice derecho si el carro aparece a la derecha de la ventana."
 
-#: ../../../payment.php:174
+#: ../../../payment.php:169
 msgid "Box color"
 msgstr "Color de la caja"
 
-#: ../../../payment.php:176
+#: ../../../payment.php:171
 msgid ""
 "Background color for the cart. HTML format (ex : #9f9f9f). Leave blank for "
 "automatic choice."
@@ -320,204 +312,196 @@ msgstr ""
 "Color de fondo para la cesta. Formato HTML (ejemplo: # 9f9f9f). Dejar en "
 "blanco para la opción automática."
 
-#: ../../../payment.php:179
+#: ../../../payment.php:174
 msgid "Icon color"
 msgstr "Color del icono"
 
-#: ../../../payment.php:182
+#: ../../../payment.php:177
 msgid "Black"
 msgstr "Negro"
 
-#: ../../../payment.php:183
+#: ../../../payment.php:178
 msgid "White"
 msgstr "Blanco"
 
-#: ../../../payment.php:186
+#: ../../../payment.php:181
 msgid "Color of the cart icon and the text."
 msgstr "El color del icono de la cesta y el texto."
 
-#: ../../../payment.php:189
+#: ../../../payment.php:184
 msgid "Save"
 msgstr "Guardar"
 
-#: ../../../payment.php:229
+#: ../../../payment.php:222
 msgid "Backup performed"
 msgstr "Copia de seguridad realizada"
 
-#: ../../../payment.php:230
+#: ../../../payment.php:223
 msgid "Impossible backup"
 msgstr "Copia de seguridad Imposible"
 
-#: ../../../payment.php:234
+#: ../../../payment.php:227
 msgid "List of orders"
 msgstr "Lista de órdenes"
 
-#: ../../../payment.php:272 ../../../paymentPdf.php:50
+#: ../../../payment.php:265 ../../../paymentPdf.php:50
 msgid "Date"
 msgstr "Fecha"
 
-#: ../../../payment.php:272
+#: ../../../payment.php:265
 msgid "Type"
 msgstr "Tipos"
 
-#: ../../../payment.php:272 ../../../payment.php:479 ../../../payment.php:499
-#: ../../../paymentInc.php:53 ../../../paymentInc.php:124
-#: ../../../paymentInc.php:137 ../../../paymentInc.php:138
-#: ../../../paymentInc.php:139 ../../../paymentOrder.php:48
+#: ../../../payment.php:265 ../../../payment.php:473 ../../../payment.php:493
+#: ../../../paymentInc.php:53 ../../../paymentInc.php:127
+#: ../../../paymentInc.php:140 ../../../paymentInc.php:141
+#: ../../../paymentInc.php:142 ../../../paymentOrder.php:48
 #: ../../../paymentOrder.php:68 ../../../paymentPdf.php:58
 #: ../../../paymentPdf.php:105
 msgid "Name"
 msgstr "Nombre"
 
-#: ../../../payment.php:272 ../../../payment.php:500 ../../../paymentInc.php:54
-#: ../../../paymentInc.php:124 ../../../paymentInc.php:138
+#: ../../../payment.php:265 ../../../payment.php:494 ../../../paymentInc.php:54
+#: ../../../paymentInc.php:127 ../../../paymentInc.php:141
 #: ../../../paymentOrder.php:69 ../../../paymentPdf.php:109
 msgid "Address"
 msgstr "Dirección"
 
-#: ../../../payment.php:272
+#: ../../../payment.php:265
 msgid "Article"
 msgstr "Artículo"
 
-#: ../../../payment.php:272 ../../../payment.php:479
+#: ../../../payment.php:265 ../../../payment.php:473
 #: ../../../paymentOrder.php:48 ../../../paymentPdf.php:58
 msgid "Price"
 msgstr "Precio"
 
-#: ../../../payment.php:272 ../../../payment.php:391 ../../../payment.php:392
-#: ../../../payment.php:393 ../../../payment.php:510 ../../../payment.php:513
-#: ../../../payment.php:514
+#: ../../../payment.php:265 ../../../payment.php:384 ../../../payment.php:385
+#: ../../../payment.php:386 ../../../payment.php:504 ../../../payment.php:507
+#: ../../../payment.php:508
 msgid "Treated"
 msgstr "Tratada"
 
-#: ../../../payment.php:315 ../../../payment.php:341 ../../../payment.php:360
-#: ../../../payment.php:361 ../../../payment.php:362 ../../../payment.php:509
-#: ../../../payment.php:510 ../../../payment.php:512 ../../../payment.php:513
+#: ../../../payment.php:308 ../../../payment.php:334 ../../../payment.php:353
+#: ../../../payment.php:354 ../../../payment.php:355 ../../../payment.php:503
+#: ../../../payment.php:504 ../../../payment.php:506 ../../../payment.php:507
 msgid "Yes"
 msgstr "Si"
 
-#: ../../../payment.php:315 ../../../payment.php:341 ../../../payment.php:360
-#: ../../../payment.php:361 ../../../paymentOrder.php:82
+#: ../../../payment.php:308 ../../../payment.php:334 ../../../payment.php:353
+#: ../../../payment.php:354 ../../../paymentOrder.php:82
 msgid "Not treated"
 msgstr "No se trata"
 
-#: ../../../payment.php:354
+#: ../../../payment.php:347
 msgid "Transfer"
 msgstr "Transferencia"
 
-#: ../../../payment.php:360 ../../../paymentOrder.php:78
+#: ../../../payment.php:353 ../../../paymentOrder.php:78
 msgid "Not paid"
 msgstr "No pagado"
 
-#: ../../../payment.php:378 ../../../payment.php:509 ../../../payment.php:512
-#: ../../../payment.php:514 ../../../paymentOrder.php:81
+#: ../../../payment.php:371 ../../../payment.php:503 ../../../payment.php:506
+#: ../../../payment.php:508 ../../../paymentOrder.php:81
 msgid "Paid"
 msgstr "Pagado"
 
-#: ../../../payment.php:379 ../../../payment.php:381 ../../../payment.php:394
-#: ../../../payment.php:396 ../../../payment.php:410 ../../../payment.php:412
-#: ../../../payment.php:417 ../../../payment.php:423 ../../../payment.php:428
-#: ../../../payment.php:536 ../../../paymentOrder.php:27
+#: ../../../payment.php:372 ../../../payment.php:374 ../../../payment.php:387
+#: ../../../payment.php:389 ../../../payment.php:403 ../../../payment.php:405
+#: ../../../payment.php:410 ../../../payment.php:416 ../../../payment.php:421
+#: ../../../payment.php:530 ../../../paymentOrder.php:27
 #: ../../../paymentOrder.php:87
 msgid "Error"
 msgstr "Error"
 
-#: ../../../payment.php:407 ../../../payment.php:408 ../../../payment.php:409
-#: ../../../payment.php:514
+#: ../../../payment.php:400 ../../../payment.php:401 ../../../payment.php:402
+#: ../../../payment.php:508
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: ../../../payment.php:416
+#: ../../../payment.php:409
 msgid "Deleted"
 msgstr "Suprimido"
 
-#: ../../../payment.php:422
+#: ../../../payment.php:415
 msgid "Archived"
 msgstr "Archivado"
 
-#: ../../../payment.php:427
+#: ../../../payment.php:420
 msgid "Restored"
 msgstr "Restaurada"
 
-#: ../../../payment.php:459
+#: ../../../payment.php:452
 msgid "Restore"
 msgstr "Restaurar"
 
-#: ../../../payment.php:477 ../../../paymentInc.php:42
-#: ../../../paymentInc.php:80 ../../../paymentInc.php:103
-#: ../../../paymentInc.php:104 ../../../paymentMake.php:29
+#: ../../../payment.php:471 ../../../paymentInc.php:42
+#: ../../../paymentInc.php:82 ../../../paymentInc.php:106
+#: ../../../paymentInc.php:107 ../../../paymentMake.php:31
 #: ../../../paymentOrder.php:46 ../../../paymentPdf.php:44
 msgid "Order"
 msgstr "Solicitar"
 
-#: ../../../payment.php:479 ../../../paymentOrder.php:48
+#: ../../../payment.php:473 ../../../paymentOrder.php:48
 #: ../../../paymentPdf.php:46 ../../../paymentPdf.php:58
 msgid "Ref"
 msgstr "Ref"
 
-#: ../../../payment.php:479 ../../../paymentOrder.php:48
+#: ../../../payment.php:473 ../../../paymentOrder.php:48
 msgid "Quantity"
 msgstr "Cantidad"
 
-#: ../../../payment.php:479 ../../../payment.php:493 ../../../paymentInc.php:50
-#: ../../../paymentInc.php:106 ../../../paymentInc.php:107
+#: ../../../payment.php:473 ../../../payment.php:487 ../../../paymentInc.php:50
+#: ../../../paymentInc.php:109 ../../../paymentInc.php:110
 #: ../../../paymentOrder.php:48 ../../../paymentOrder.php:62
 #: ../../../paymentPdf.php:58 ../../../paymentPdf.php:98
 msgid "Total"
 msgstr "Total"
 
-#: ../../../payment.php:487 ../../../paymentOrder.php:56
+#: ../../../payment.php:481 ../../../paymentOrder.php:56
 #: ../../../paymentPdf.php:87
 msgid "Subtotal"
 msgstr "Total parcial"
 
-#: ../../../payment.php:495 ../../../paymentOrder.php:64
+#: ../../../payment.php:489 ../../../paymentOrder.php:64
 #: ../../../paymentPdf.php:103
 msgid "Shipping address"
 msgstr "Dirección de envío"
 
-#: ../../../payment.php:501 ../../../paymentInc.php:55
-#: ../../../paymentInc.php:124 ../../../paymentInc.php:138
+#: ../../../payment.php:495 ../../../paymentInc.php:55
+#: ../../../paymentInc.php:127 ../../../paymentInc.php:141
 #: ../../../paymentOrder.php:70 ../../../paymentPdf.php:113
 msgid "Mail"
 msgstr "Mail"
 
-#: ../../../payment.php:506 ../../../paymentOrder.php:75
+#: ../../../payment.php:500 ../../../paymentOrder.php:75
 #: ../../../paymentPdf.php:54
 msgid "Payment"
 msgstr "Pago"
 
-#: ../../../payment.php:507 ../../../payment.php:518
+#: ../../../payment.php:501 ../../../payment.php:512
 msgid "Are you sure ?"
 msgstr "¿Seguro?"
 
-#: ../../../payment.php:507
+#: ../../../payment.php:501
 msgid "Delete"
 msgstr "Borrar"
 
-#: ../../../payment.php:509 ../../../payment.php:510 ../../../payment.php:514
+#: ../../../payment.php:503 ../../../payment.php:504 ../../../payment.php:508
 msgid "No"
 msgstr "No"
 
-#: ../../../payment.php:517 ../../../paymentOrder.php:84
+#: ../../../payment.php:511 ../../../paymentOrder.php:84
 msgid "Invoice in PDF"
 msgstr "Factura en PDF"
 
-#: ../../../payment.php:518
+#: ../../../payment.php:512
 msgid "Archive"
 msgstr "Archivo"
 
 #: ../../../paymentInc.php:51
 msgid "Shipping"
 msgstr "Envío"
-
-#: ../../../paymentInc.php:57
-msgid "Secure payment by card"
-msgstr "Pago seguro con tarjeta"
-
-#: ../../../paymentInc.php:58
-msgid "Pay with your Paypal account"
-msgstr "Pague con su cuenta de Paypal"
 
 #: ../../../paymentInc.php:59
 msgid "Pay by cheque"
@@ -527,35 +511,35 @@ msgstr "Pague con cheque"
 msgid "Bank transfer"
 msgstr "Transferencia"
 
-#: ../../../paymentInc.php:62
+#: ../../../paymentInc.php:64
 msgid "Fields are mandatory"
 msgstr "Los campos son obligatorios"
 
-#: ../../../paymentInc.php:62 ../../../paymentInc.php:152
+#: ../../../paymentInc.php:64 ../../../paymentInc.php:155
 msgid "Invalid email"
 msgstr "Email inválido"
 
-#: ../../../paymentInc.php:117
+#: ../../../paymentInc.php:120
 msgid "Follow the evolution of your order"
 msgstr "Siga la evolución de su pedido"
 
-#: ../../../paymentInc.php:118
+#: ../../../paymentInc.php:121
 msgid "Cancel this order"
 msgstr "Cancelar este pedido"
 
-#: ../../../paymentInc.php:123 ../../../paymentInc.php:125
+#: ../../../paymentInc.php:126 ../../../paymentInc.php:128
 msgid "Send your cheque to the following address"
 msgstr "Envíe su cheque a la siguiente dirección"
 
-#: ../../../paymentInc.php:123 ../../../paymentInc.php:125
+#: ../../../paymentInc.php:126 ../../../paymentInc.php:128
 msgid "Payable to"
 msgstr "A pagar en el"
 
-#: ../../../paymentInc.php:125 ../../../paymentInc.php:139
+#: ../../../paymentInc.php:128 ../../../paymentInc.php:142
 msgid "Ref to mention"
 msgstr "Ref mencionar"
 
-#: ../../../paymentInc.php:126 ../../../paymentInc.php:140
+#: ../../../paymentInc.php:129 ../../../paymentInc.php:143
 msgid ""
 "We expect your payment within 10 days. After this time, the order will be "
 "destroyed."
@@ -563,24 +547,24 @@ msgstr ""
 "Esperamos que su pago dentro de 10 días. Después de este tiempo, la orden "
 "será destruido."
 
-#: ../../../paymentInc.php:127 ../../../paymentInc.php:141
-#: ../../../paymentInc.php:149 ../../../paymentPdf.php:121
+#: ../../../paymentInc.php:130 ../../../paymentInc.php:144
+#: ../../../paymentInc.php:152 ../../../paymentPdf.php:121
 msgid "Thank you for your trust."
 msgstr "Gracias por tu confianza."
 
-#: ../../../paymentInc.php:129
+#: ../../../paymentInc.php:132
 msgid "New order by cheque"
 msgstr "Nuevo orden por cheque"
 
-#: ../../../paymentInc.php:137 ../../../paymentInc.php:139
+#: ../../../paymentInc.php:140 ../../../paymentInc.php:142
 msgid "Transfer your payment to the following account"
 msgstr "Transfiera su pago a la siguiente cuenta"
 
-#: ../../../paymentInc.php:143
+#: ../../../paymentInc.php:146
 msgid "New order by bank transfer"
 msgstr "Nuevo orden por transferencia"
 
-#: ../../../paymentInc.php:149
+#: ../../../paymentInc.php:152
 msgid "A summary email with the elements for payment was sent to you."
 msgstr ""
 "Un email de resumen con los elementos para el pago fue enviado a usted."
@@ -600,3 +584,21 @@ msgstr "Sale para la entrega"
 #: ../../../paymentPdf.php:40
 msgid "Invoice"
 msgstr "Factura"
+
+#~ msgid "Paypal"
+#~ msgstr "Paypal"
+
+#~ msgid "Paypal Plugin needed. EXT mode must be activated."
+#~ msgstr "PayPal Plugin necesario. Modo EXT debe estar activado."
+
+#~ msgid "Payplug"
+#~ msgstr "Payplug"
+
+#~ msgid "Payplug Plugin needed. EXT mode must be activated."
+#~ msgstr "Payplug Plugin necesario. Modo EXT debe estar activado."
+
+#~ msgid "Secure payment by card"
+#~ msgstr "Pago seguro con tarjeta"
+
+#~ msgid "Pay with your Paypal account"
+#~ msgstr "Pague con su cuenta de Paypal"

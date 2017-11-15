@@ -32,19 +32,9 @@ if (isset($_POST['action']))
 				<h3><?php echo T_("Active payment :");?></h3>
 				<table class="hForm">
 					<tr>
-						<td><label><?php echo T_("Paypal");?></label></td>
-						<td><input type="checkbox" class="input" name="pml" id="pml" /></td>
-						<td><em><?php echo T_("Paypal Plugin needed. EXT mode must be activated.");?></em></td>
-					</tr>
-					<tr>
-						<td><label><?php echo T_("Payplug");?></label></td>
-						<td><input type="checkbox" class="input" name="pmg" id="pmg" /></td>
-						<td><em><?php echo T_("Payplug Plugin needed. EXT mode must be activated.");?></em></td>
-					</tr>
-					<tr>
-						<td><label><?php echo T_("PayCoin");?></label></td>
-						<td><input type="checkbox" class="input" name="pmo" id="pmo" /></td>
-						<td><em><?php echo T_("Accept Bitcoin Payment. Paycoin Plugin needed and activated.");?></em></td>
+						<td><label><?php echo T_("External payment");?></label></td>
+						<td><span id="payExt"></span></td>
+						<td><em><?php echo T_("Payment enabled with another plugin (Paypal...).");?></em></td>
 					</tr>
 					<tr>
 						<td><label><?php echo T_("Bank Transfer");?></label></td>
@@ -201,13 +191,10 @@ if (isset($_POST['action']))
 		<?php break;
 		// ********************************************************************************************
 		case 'save':
-		$q = file_get_contents('../../data/busy.json'); $a = json_decode($q,true); $Ubusy = $a['nom'];
-		$q = @file_get_contents('../../data/'.$Ubusy.'/payment.json');
+		$q = @file_get_contents('../../data/payment.json');
 		if($q) $a = json_decode($q,true);
 		else $a = Array();
-		$a['method']['ppal'] = $_POST['ppal'];
-		$a['method']['plug'] = $_POST['plug'];
-		$a['method']['coin'] = $_POST['coin'];
+		foreach($a['method'] as $k=>$v) if($k!='vire' && $k!='cheq' && !file_exists('../'.$k.'/'.$k.'.php')) unset($a['method'][$k]);
 		$a['method']['vire'] = $_POST['vire'];
 		$a['method']['cheq'] = $_POST['cheq'];
 		$a['taa'] = $_POST['taa'];
@@ -232,7 +219,7 @@ if (isset($_POST['action']))
 		$a['iban'] = $_POST['iban'];
 		$a['bic'] = $_POST['bic'];
 		$out = json_encode($a);
-		if (file_put_contents('../../data/'.$Ubusy.'/payment.json', $out)) echo T_('Backup performed');
+		if(file_put_contents('../../data/payment.json', $out)) echo T_('Backup performed');
 		else echo '!'.T_('Impossible backup');
 		break;
 		// ********************************************************************************************
@@ -471,7 +458,7 @@ if (isset($_POST['action']))
 			{
 			include('paymentGetData.php');
 			$q = file_get_contents('../../data/busy.json'); $a1 = json_decode($q,true); $Ubusy = $a1['nom'];
-			$q = file_get_contents('../../data/'.$Ubusy.'/payment.json'); $a1 = json_decode($q,true); $curr = $a1['curr'];
+			$q = file_get_contents('../../data/payment.json'); $a1 = json_decode($q,true); $curr = $a1['curr'];
 			$q = file_get_contents('../../data/'.$Ubusy.'/addtocart.json'); $a2 = json_decode($q,true);
 			if($curr=='EUR') $curr = '&euro;';
 			else if($curr=='USD' || $curr=='CAD') $curr = '$';

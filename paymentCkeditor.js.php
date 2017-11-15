@@ -7,10 +7,9 @@ UconfigNum++;
 <?php $a = 0;
 if(file_exists(dirname(__FILE__).'/../../data/busy.json'))
 	{
-	$q = file_get_contents(dirname(__FILE__).'/../../data/busy.json'); $b = json_decode($q,true); $Ubusy = isset($b['nom'])?$b['nom']:false;
-	if($Ubusy && file_exists(dirname(__FILE__).'/../../data/'.$Ubusy.'/payment.json'))
+	if(file_exists(dirname(__FILE__).'/../../data/payment.json'))
 		{
-		$q = file_get_contents(dirname(__FILE__).'/../../data/'.$Ubusy.'/payment.json');
+		$q = file_get_contents(dirname(__FILE__).'/../../data/payment.json');
 		$a = json_decode($q,true);
 		}
 	}
@@ -18,7 +17,7 @@ if(empty($a['addtocartoff'])) { ?>
 
 var paymentTaa='',paymentTab='',paymentTac='',paymentTad='',paymentTda='',paymentTdb='',paymentTdc='',paymentTdd='',paymentTin='',paymentCurr='';
 jQuery(document).ready(function(){
-	jQuery.getJSON("uno/data/"+Ubusy+"/payment.json?r="+Math.random(),function(r){
+	jQuery.getJSON("uno/data/payment.json?r="+Math.random(),function(r){
 		if(r.curr!=undefined)paymentCur=r.curr;
 		if(r.curr=='EUR')paymentCur='\u20ac';else if(r.curr=='USD'||r.curr=='CAD')paymentCur='$';else if(r.curr=='GBP')paymentCur='\u00A3';
 		if(r.taa!=undefined)paymentTaa=r.taa+' '+(r.taa.search('%')==-1&&r.taa.length>0?paymentCur:'');

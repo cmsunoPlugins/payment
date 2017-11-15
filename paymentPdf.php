@@ -18,7 +18,7 @@ if(isset($q) && $q)
 	$a = json_decode($q,true);
 	$q = file_get_contents('../../data/busy.json'); $a1 = json_decode($q,true); $Ubusy = $a1['nom'];
 	$q = file_get_contents('../../data/'.$Ubusy.'/site.json'); $a1 = json_decode($q,true); $site = $a1['tit']; $url = $a1['url'];
-	$q = file_get_contents('../../data/'.$Ubusy.'/payment.json'); $a1 = json_decode($q,true); $curr = $a1['curr']; $ship = $a1['ship'];
+	$q = file_get_contents('../../data/payment.json'); $a1 = json_decode($q,true); $curr = $a1['curr']; $ship = $a1['ship'];
 	if($curr=='EUR') $curr = chr(128);
 	else if($curr=='USD' || $curr=='CAD') $curr = '$';
 	else if($curr=='GBP') $curr = '£';

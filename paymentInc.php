@@ -17,7 +17,7 @@ if(isset($_POST['a']))
 		if($cart)
 			{
 			$cartJson = '';
-			$q1 = file_get_contents('../../data/'.$Ubusy.'/payment.json');
+			$q1 = file_get_contents('../../data/payment.json');
 			$a1 = json_decode($q1,true);
 			$q2 = file_get_contents('../../data/'.$Ubusy.'/addtocart.json');
 			$a2 = json_decode($q2,true);
@@ -54,11 +54,12 @@ if(isset($_POST['a']))
 			$o .= '<tr><td>'.T_("Address").'*</td><td><input style="max-width:100%" type="text" id="popAd" /></td></tr>';
 			$o .= '<tr><td>'.T_("Mail").'*</td><td><input style="max-width:100%" type="text" id="popMa" /></td></tr></table>';
 			$o .= '<div style="text-align:center">';
-			if(isset($a1['method']['plug']) && $a1['method']['plug']) $o .= '<a href="JavaScript:void(0);" id="popPlug"><img src="uno/plugins/payment/img/payplug76.png" alt="'.T_("Secure payment by card").'" title="'.T_("Secure payment by card").'" class="logo" /></a>';
-			if(isset($a1['method']['ppal']) && $a1['method']['ppal']) $o .= '<a href="JavaScript:void(0);" id="popPpal"><img src="uno/plugins/payment/img/paypal76.png" alt="'.T_("Pay with your Paypal account").'" title="'.T_("Pay with your Paypal account").'" class="logo" /></a>';
-			if(isset($a1['method']['coin']) && $a1['method']['coin']) $o .= '<a href="JavaScript:void(0);" id="popCoin"><img src="uno/plugins/payment/img/paycoin76.png" alt="'.T_("Bitcoin payment").'" title="'.T_("Bitcoin payment").'" class="logo" /></a>';
-			if(isset($a1['method']['cheq']) && $a1['method']['cheq']) $o .= '<a href="JavaScript:void(0);" id="popCheq"><img src="uno/plugins/payment/img/cheque76.png" alt="'.T_("Pay by cheque").'" title="'.T_("Pay by cheque").'" class="logo" /></a>';
-			if(isset($a1['method']['vire']) && $a1['method']['vire']) $o .= '<a href="JavaScript:void(0);" id="popVire"><img src="uno/plugins/payment/img/virement76.png" alt="'.T_("Bank transfer").'" title="'.T_("Bank transfer").'" class="logo" /></a>';
+			foreach($a1['method'] as $k=>$v)
+				{
+				if($k=='cheq' && $v) $o .= '<a href="JavaScript:void(0);" id="popCheq"><img src="uno/plugins/payment/img/cheque-btn.png" alt="'.T_("Pay by cheque").'" title="'.T_("Pay by cheque").'" class="logo" /></a>';
+				else if($k=='vire' && $v) $o .= '<a href="JavaScript:void(0);" id="popVire"><img src="uno/plugins/payment/img/virement-btn.png" alt="'.T_("Bank transfer").'" title="'.T_("Bank transfer").'" class="logo" /></a>';
+				else if($v) $o .= '<a href="JavaScript:void(0);" id="pop'.$k.'"><img src="uno/plugins/'.$k.'/img/'.$k.'-btn.png" alt="'.$k.'" title="'.$k.'" class="logo" /></a>';
+				}
 			$o .= '</div><div id="popAlert"></div>';
 			echo $cartJson.'|;'.$o.'|;'.T_('Fields are mandatory').'|;'.T_('Invalid email');
 			}
