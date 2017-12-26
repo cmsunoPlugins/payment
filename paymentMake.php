@@ -10,35 +10,54 @@ if(file_exists('data/payment.json'))
 	// OK : ?payplug=ok&digit=mapage|monplugin|123456789123
 	$q1 = file_get_contents('data/payment.json');
 	$a1 = json_decode($q1,true);
-	$it = (isset($a1['it'])?$a1['it']:'shortcode');
-	$ali = (isset($a1['ali'])?$a1['ali']:'left');
-	$col = (isset($a1['col'])?$a1['col']:'#eee');
-	$ico = (isset($a1['ico'])?$a1['ico']:'black');
-	$Ustyle .= '.cart{position:relative;display:inline-block;height:auto;padding:0;font-size:.9em;margin:0;line-height:1.1em;white-space:nowrap;}
-.cart>a{display:block;width:auto;text-align:right;color:'.$ico.';text-decoration:none;padding:4px 0 4px 20px!important;background-image:url(uno/plugins/payment/img/panier16'.($ico=='white'?'blanc':'').'.png);background-repeat:no-repeat;background-position:0px 2px;}
-.cart>a.on{color:red;}.cartBox{position:relative;display:none;width:40px;}
-.cartTable{z-index:999;position:absolute;top:4px;'.$ali.':1px;color:'.$ico.';background-color:'.$col.';padding:1.4em;text-align:left;border-bottom-left-radius:5px;border-bottom-right-radius:5px;box-shadow:0 1px 2px #666666;-webkit-box-shadow:0 1px 2px #666666;}
-.cartTable th{border-top:1px solid '.$ico.';}.cartTable td{padding-right:4px;}
-.cartTable .button{float:right;width:auto;margin:0;background:-moz-linear-gradient(center top,#f3f3f3,#dddddd);background:-webkit-gradient(linear,left top,left bottom,from(#f3f3f3),to(#dddddd));background: -o-linear-gradient(top,#f3f3f3,#dddddd);filter:progid:DXImageTransform.Microsoft.gradient(startColorStr="#f3f3f3",EndColorStr="#dddddd");border-color:#000;border-width:1px;-moz-border-radius:4px;-webkit-border-radius:4px;color:#333;cursor:pointer;padding:4px 7px;font-size:1em;line-height:1.1em;}
-.cartTable .button:hover{background:#ddd;}'."\r\n";
-	$tmp1 = ''; // version directe (le panier est en ajax)
+	$it = (!empty($a1['it'])?$a1['it']:'shortcode');
+	$ali = ((!empty($a1['ali'])&&$a1['ali']=='right')?1:0);
+	$col = (!empty($a1['col'])?$a1['col']:(empty($Ua['w3'])?'#eee':''));
+	$ico = ((!empty($a1['ico'])&&$a1['ico']=='white')?1:0);
+	if(empty($Ua['w3'])) $Ustyle .= '.cart{position:relative;display:inline-block;height:auto;padding:0;font-size:.9em;margin:0;line-height:1.1em;white-space:nowrap;}.cart .w3-button{cursor:pointer}
+.cartBox{z-index:999;position:absolute;padding:1.4em;text-align:left;border-bottom-left-radius:5px;border-bottom-right-radius:5px;box-shadow:0 1px 2px #666666;-webkit-box-shadow:0 1px 2px #666666;}.popPayment h3{margin:4px 0}}
+.cartTable td{padding-right:4px;}.cartBox .w3-button{cursor:pointer;}'."\r\n";
+	$Ustyle .= '.cartTable td{vertical-align:middle;white-space:nowrap;}'."\r\n";
+	$tmp0 = ''; $tmp1 = ''; // version directe (le panier est en ajax)
+	$div0 = ''; $div1 = ''; $hover = '';
+	if(!empty($Ua['w3']))
+		{
+		$tmp0 = '<div class="w3-center"><div class="w3-bar">'; $tmp1 = '</div></div>';
+		$div0 = '<div class="w3-button w3-hover-white">'; $div1 = '</div>';
+		$hover = 'w3-hover-opacity ';
+		}
 	foreach($a1['method'] as $k=>$v)
 		{
-		if($k=='cheq' && $v) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payCheqCart(paymentC);"><img src="uno/plugins/payment/img/cheque-btn.png" class="logo" /></a>';
-		else if($k=='vire' && $v) $tmp1 .= '<a href="JavaScript:void(0);" onClick="payVireCart(paymentC);"><img src="uno/plugins/payment/img/virement-btn.png" class="logo" /></a>';
-		else if(isset($Ua['plug'][$k]) && $v) $tmp1 .= '<a href="JavaScript:void(0);" onClick="'.$k.'Cart(paymentC);"><img src="uno/plugins/'.$k.'/img/'.$k.'-btn.png" class="logo" /></a>';
+		if($k=='cheq' && $v) $tmp0 .= $div0.'<a href="JavaScript:void(0);" onClick="paymentCVCart(paymentC,0);"><img src="uno/plugins/payment/img/cheque-btn.png" class="'.$hover.'logo" /></a>'.$div1;
+		else if($k=='vire' && $v) $tmp0 .= $div0.'<a href="JavaScript:void(0);" onClick="paymentCVCart(paymentC,1);"><img src="uno/plugins/payment/img/virement-btn.png" class="'.$hover.'logo" /></a>'.$div1;
+		else if(isset($Ua['plug'][$k]) && $v) $tmp0 .= $div0.'<a href="JavaScript:void(0);" onClick="'.$k.'Cart(paymentC);"><img src="uno/plugins/'.$k.'/img/'.$k.'-btn.png" class="'.$hover.'logo" /></a>'.$div1;
 		}
-	$tmp = "<script type=\"text/javascript\">var paymentC,paymentBtn='".T_('Order')."';function paymentCart(f){paymentC=f;var g=eval('('+f+')');if(g['prod']){unoPop('".$tmp1."',0);}};</script>"."\r\n";
+	$tmp0 .= $tmp1;
+	$tmp = "<script type=\"text/javascript\">var paymentC,paymentBtn='".T_('Order')."';function paymentCart(f){paymentC=f;var g=eval('('+f+')');if(g['prod']){unoPop('".$tmp0."',0);}};</script>"."\r\n";
+
+	$cart = '<div class="'.(isset($Uw3['dropdown']['w3-dropdown-click'])?$Uw3['dropdown']['w3-dropdown-click']:'w3-dropdown-click').(!empty($ali)?' w3-right':'').' cart" id="cart">
+	<div class="w3-button" onclick="paymentOpenCart(1)"><img src="uno/plugins/payment/img/panier16'.(!empty($ico)?'blanc':'').'.png" alt="" /><span class="w3-badge w3-green" id="cartNb"></span></div>
+	<div class="'.(isset($Uw3['dropdown']['w3-dropdown-content'])?$Uw3['dropdown']['w3-dropdown-content']:'w3-dropdown-content').' '.(isset($Uw3['card']['w3-card'])?$Uw3['card']['w3-card']:'w3-card').' cartBox w3-hide" id="cartBox" style="'.(!empty($col)?'background-color:'.$col.'!important;':'').(!empty($ali)?'right:0':'').'">
+		<div class="w3-container">
+			<table class="w3-table w3-bordered cartTable" id="cartTable">
+			</table>
+			<div class="w3-section">
+				<button class="'.(isset($Uw3['card']['w3-button'])?$Uw3['card']['w3-button']:'w3-button').' w3-block" onClick="paymentBuy()">Order</button>
+			</div>
+		</div>
+	</div></div><!-- #cart -->'."\r\n";
+
+
 	if(strpos($Uhtml.$Ucontent,'[[paymentCart]]')!==false || strpos($Uhtml.$Ucontent,'paymentAddC')!==false)
 		{
 		if($it=='shortcode')
 			{
-			$Uhtml = str_replace('[[paymentCart]]','<div id="cart" class="cart"></div>',$Uhtml);
-			$Ucontent = str_replace('[[paymentCart]]','<div id="cart" class="cart"></div>',$Ucontent);
+			$Uhtml = str_replace('[[paymentCart]]',$cart,$Uhtml);
+			$Ucontent = str_replace('[[paymentCart]]',$cart,$Ucontent);
 			}
 		else
 			{
-			$Umenu .= '<li><div id="cart" class="cart"></div></li>';
+			$Umenu .= '<li>'.$cart.'</li>';
 			$Uhtml = str_replace('[[paymentCart]]','',$Uhtml);
 			$Ucontent = str_replace('[[paymentCart]]','',$Ucontent);
 			}

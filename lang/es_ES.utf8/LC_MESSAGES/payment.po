@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CmsUno\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-15 10:20+0100\n"
-"PO-Revision-Date: 2017-11-15 10:21+0100\n"
-"Last-Translator: jacques Malgrange <contacter@boiteasite.fr>\n"
+"POT-Creation-Date: 2017-12-26 18:49+0100\n"
+"PO-Revision-Date: 2017-12-26 18:50+0100\n"
+"Last-Translator: malgrange <jacques.malgrange@gmail.com>\n"
 "Language-Team: Jacques Malgrange <contacter@boiteasite.fr>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-KeywordsList: _;T_\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: iso-8859-1\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SearchPath-0: ../../..\n"
 
 #: ../../../payment.php:22 ../../../payment.php:446
@@ -130,8 +130,8 @@ msgid "Cheque and Bank transfer. Cheque payable to (name, society...)"
 msgstr ""
 "Cheque Transferencia y el Banco. Cheque a nombre de (nombre, sociedad ...)"
 
-#: ../../../payment.php:60 ../../../paymentInc.php:140
-#: ../../../paymentInc.php:142
+#: ../../../payment.php:60 ../../../paymentInc.php:114
+#: ../../../paymentInc.php:149 ../../../paymentInc.php:164
 msgid "IBAN"
 msgstr "IBAN"
 
@@ -139,8 +139,8 @@ msgstr "IBAN"
 msgid "Bank transfer only. International Bank Account Number"
 msgstr "Sólo las transferencias. Numero de cuenta de Banco Internacional"
 
-#: ../../../payment.php:65 ../../../paymentInc.php:140
-#: ../../../paymentInc.php:142
+#: ../../../payment.php:65 ../../../paymentInc.php:114
+#: ../../../paymentInc.php:149 ../../../paymentInc.php:164
 msgid "BIC"
 msgstr "BIC"
 
@@ -161,7 +161,7 @@ msgid "A proportional tax is written with the sign"
 msgstr "Un impuesto proporcional se escribe con el signo"
 
 #: ../../../payment.php:74 ../../../payment.php:80 ../../../payment.php:86
-#: ../../../payment.php:92 ../../../payment.php:473 ../../../paymentInc.php:45
+#: ../../../payment.php:92 ../../../payment.php:473 ../../../paymentInc.php:52
 #: ../../../paymentOrder.php:48 ../../../paymentPdf.php:58
 msgid "Tax"
 msgstr "Impuestos"
@@ -200,8 +200,8 @@ msgid "On the site, the price of the item is displayed..."
 msgstr "En el sitio, se muestra el precio del artículo..."
 
 #: ../../../payment.php:118 ../../../payment.php:120 ../../../payment.php:484
-#: ../../../paymentGetData.php:8 ../../../paymentInc.php:48
-#: ../../../paymentInc.php:106 ../../../paymentInc.php:107
+#: ../../../paymentGetData.php:8 ../../../paymentInc.php:55
+#: ../../../paymentInc.php:116 ../../../paymentInc.php:118
 #: ../../../paymentOrder.php:59 ../../../paymentPdf.php:93
 msgid "Shipping cost"
 msgstr "Costo de envío"
@@ -353,16 +353,16 @@ msgid "Type"
 msgstr "Tipos"
 
 #: ../../../payment.php:265 ../../../payment.php:473 ../../../payment.php:493
-#: ../../../paymentInc.php:53 ../../../paymentInc.php:127
-#: ../../../paymentInc.php:140 ../../../paymentInc.php:141
-#: ../../../paymentInc.php:142 ../../../paymentOrder.php:48
-#: ../../../paymentOrder.php:68 ../../../paymentPdf.php:58
-#: ../../../paymentPdf.php:105
+#: ../../../paymentInc.php:45 ../../../paymentInc.php:114
+#: ../../../paymentInc.php:135 ../../../paymentInc.php:148
+#: ../../../paymentInc.php:149 ../../../paymentInc.php:164
+#: ../../../paymentOrder.php:48 ../../../paymentOrder.php:68
+#: ../../../paymentPdf.php:58 ../../../paymentPdf.php:105
 msgid "Name"
 msgstr "Nombre"
 
-#: ../../../payment.php:265 ../../../payment.php:494 ../../../paymentInc.php:54
-#: ../../../paymentInc.php:127 ../../../paymentInc.php:141
+#: ../../../payment.php:265 ../../../payment.php:494 ../../../paymentInc.php:46
+#: ../../../paymentInc.php:135 ../../../paymentInc.php:148
 #: ../../../paymentOrder.php:69 ../../../paymentPdf.php:109
 msgid "Address"
 msgstr "Dirección"
@@ -435,10 +435,12 @@ msgstr "Restaurada"
 msgid "Restore"
 msgstr "Restaurar"
 
-#: ../../../payment.php:471 ../../../paymentInc.php:42
-#: ../../../paymentInc.php:82 ../../../paymentInc.php:106
-#: ../../../paymentInc.php:107 ../../../paymentMake.php:31
-#: ../../../paymentOrder.php:46 ../../../paymentPdf.php:44
+#: ../../../payment.php:471 ../../../paymentInc.php:48
+#: ../../../paymentInc.php:49 ../../../paymentInc.php:88
+#: ../../../paymentInc.php:115 ../../../paymentInc.php:116
+#: ../../../paymentInc.php:118 ../../../paymentInc.php:165
+#: ../../../paymentMake.php:36 ../../../paymentOrder.php:46
+#: ../../../paymentPdf.php:44
 msgid "Order"
 msgstr "Solicitar"
 
@@ -451,8 +453,8 @@ msgstr "Ref"
 msgid "Quantity"
 msgstr "Cantidad"
 
-#: ../../../payment.php:473 ../../../payment.php:487 ../../../paymentInc.php:50
-#: ../../../paymentInc.php:109 ../../../paymentInc.php:110
+#: ../../../payment.php:473 ../../../payment.php:487 ../../../paymentInc.php:55
+#: ../../../paymentInc.php:116 ../../../paymentInc.php:119
 #: ../../../paymentOrder.php:48 ../../../paymentOrder.php:62
 #: ../../../paymentPdf.php:58 ../../../paymentPdf.php:98
 msgid "Total"
@@ -468,8 +470,8 @@ msgstr "Total parcial"
 msgid "Shipping address"
 msgstr "Dirección de envío"
 
-#: ../../../payment.php:495 ../../../paymentInc.php:55
-#: ../../../paymentInc.php:127 ../../../paymentInc.php:141
+#: ../../../payment.php:495 ../../../paymentInc.php:47
+#: ../../../paymentInc.php:135 ../../../paymentInc.php:148
 #: ../../../paymentOrder.php:70 ../../../paymentPdf.php:113
 msgid "Mail"
 msgstr "Mail"
@@ -499,47 +501,67 @@ msgstr "Factura en PDF"
 msgid "Archive"
 msgstr "Archivo"
 
-#: ../../../paymentInc.php:51
+#: ../../../paymentInc.php:44
 msgid "Shipping"
 msgstr "Envío"
 
-#: ../../../paymentInc.php:59
+#: ../../../paymentInc.php:60 ../../../paymentInc.php:113
+#: ../../../paymentInc.php:163
 msgid "Pay by cheque"
 msgstr "Pague con cheque"
 
-#: ../../../paymentInc.php:60
+#: ../../../paymentInc.php:61 ../../../paymentInc.php:114
+#: ../../../paymentInc.php:164
 msgid "Bank transfer"
 msgstr "Transferencia"
 
-#: ../../../paymentInc.php:64
+#: ../../../paymentInc.php:65
 msgid "Fields are mandatory"
 msgstr "Los campos son obligatorios"
 
-#: ../../../paymentInc.php:64 ../../../paymentInc.php:155
+#: ../../../paymentInc.php:65 ../../../paymentInc.php:171
 msgid "Invalid email"
 msgstr "Email inválido"
 
-#: ../../../paymentInc.php:120
-msgid "Follow the evolution of your order"
-msgstr "Siga la evolución de su pedido"
-
-#: ../../../paymentInc.php:121
-msgid "Cancel this order"
-msgstr "Cancelar este pedido"
-
-#: ../../../paymentInc.php:126 ../../../paymentInc.php:128
+#: ../../../paymentInc.php:113 ../../../paymentInc.php:136
+#: ../../../paymentInc.php:163
 msgid "Send your cheque to the following address"
 msgstr "Envíe su cheque a la siguiente dirección"
 
-#: ../../../paymentInc.php:126 ../../../paymentInc.php:128
+#: ../../../paymentInc.php:113 ../../../paymentInc.php:136
+#: ../../../paymentInc.php:163
 msgid "Payable to"
 msgstr "A pagar en el"
 
-#: ../../../paymentInc.php:128 ../../../paymentInc.php:142
+#: ../../../paymentInc.php:114 ../../../paymentInc.php:149
+#: ../../../paymentInc.php:164
+msgid "Transfer your payment to the following account"
+msgstr "Transfiera su pago a la siguiente cuenta"
+
+#: ../../../paymentInc.php:117
+msgid "A summary email with the elements for payment was sent to you."
+msgstr ""
+"Un email de resumen con los elementos para el pago fue enviado a usted."
+
+#: ../../../paymentInc.php:117 ../../../paymentInc.php:138
+#: ../../../paymentInc.php:151 ../../../paymentInc.php:167
+#: ../../../paymentPdf.php:121
+msgid "Thank you for your trust."
+msgstr "Gracias por tu confianza."
+
+#: ../../../paymentInc.php:129
+msgid "Follow the evolution of your order"
+msgstr "Siga la evolución de su pedido"
+
+#: ../../../paymentInc.php:130
+msgid "Cancel this order"
+msgstr "Cancelar este pedido"
+
+#: ../../../paymentInc.php:136 ../../../paymentInc.php:149
 msgid "Ref to mention"
 msgstr "Ref mencionar"
 
-#: ../../../paymentInc.php:129 ../../../paymentInc.php:143
+#: ../../../paymentInc.php:137 ../../../paymentInc.php:150
 msgid ""
 "We expect your payment within 10 days. After this time, the order will be "
 "destroyed."
@@ -547,27 +569,20 @@ msgstr ""
 "Esperamos que su pago dentro de 10 días. Después de este tiempo, la orden "
 "será destruido."
 
-#: ../../../paymentInc.php:130 ../../../paymentInc.php:144
-#: ../../../paymentInc.php:152 ../../../paymentPdf.php:121
-msgid "Thank you for your trust."
-msgstr "Gracias por tu confianza."
-
-#: ../../../paymentInc.php:132
+#: ../../../paymentInc.php:140
 msgid "New order by cheque"
 msgstr "Nuevo orden por cheque"
 
-#: ../../../paymentInc.php:140 ../../../paymentInc.php:142
-msgid "Transfer your payment to the following account"
-msgstr "Transfiera su pago a la siguiente cuenta"
-
-#: ../../../paymentInc.php:146
+#: ../../../paymentInc.php:153
 msgid "New order by bank transfer"
 msgstr "Nuevo orden por transferencia"
 
-#: ../../../paymentInc.php:152
-msgid "A summary email with the elements for payment was sent to you."
+#: ../../../paymentInc.php:167
+msgid ""
+"Do not forget to also send your email address. We will send you the file."
 msgstr ""
-"Un email de resumen con los elementos para el pago fue enviado a usted."
+"No olvides enviar también tu dirección de correo electrónico. Le enviaremos "
+"el archivo."
 
 #: ../../../paymentOrder.php:23
 msgid "The order is canceled"
