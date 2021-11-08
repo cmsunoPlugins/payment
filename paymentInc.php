@@ -59,7 +59,7 @@ if(isset($_POST['a']))
 				{
 				if($k=='cheq' && $v) $o .= '<span class="w3-button w3-hover-white" id="popCheq"><img src="uno/plugins/payment/img/cheque-btn.png" class="w3-hover-opacity" alt="'.T_("Pay by cheque").'" title="'.T_("Pay by cheque").'" /></span>';
 				else if($k=='vire' && $v) $o .= '<span class="w3-button w3-hover-white" id="popVire"><img src="uno/plugins/payment/img/virement-btn.png" class="w3-hover-opacity" alt="'.T_("Bank transfer").'" title="'.T_("Bank transfer").'" /></span>';
-				else if($v) $o .= '<span class="w3-button w3-hover-white" id="pop'.$k.'""><img src="uno/plugins/'.$k.'/img/'.$k.'-btn.png" class="w3-hover-opacity" alt="'.$k.'" title="'.$k.'" /></span>';
+				else if($v) $o .= '<span class="w3-button w3-hover-white" id="pop'.$k.'"><img src="uno/plugins/'.$k.'/img/'.$k.'-btn.png" class="w3-hover-opacity" alt="'.$k.'" title="'.$k.'" /></span>';
 				}
 			$o .= '</div></div><div id="popAlert"></div>';
 			echo $cartJson.'|;'.$o.'|;'.T_('Fields are mandatory').'|;'.T_('Invalid email');

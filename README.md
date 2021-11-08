@@ -59,6 +59,7 @@ data['method']['payfoo'] = 0 ```
 
 ### Versions ###
 
+* 1.3.1 - 08/11/2021 : Update fpdf to 1.8.3 => fix issue on PHP 8+
 * 1.3 - 26/12/2017 : Compatible with W3.CSS
 * 1.2 - 15/11/2017 : Change connection with external payment gateway
 * 1.1.3 - 10/11/2017 : Add Gateway with Bitcoin Paycoin plugin
