@@ -10,3 +10,8 @@ table.paymentTO td.paymentTN:nth-child(2){color:inherit;}
 #paymentArchData{margin-bottom:10px;}
 #paymentArchiv{margin:15px 10px;}
 #payExt{text-transform:uppercase;padding:0 10px;font-weight:700;}
+@media screen and (max-width:780px){
+	#paymentVente tr{display:block;margin-bottom:10px;}
+	#paymentVente td:nth-child(4),#paymentVente th:nth-child(4){display:block;text-align:left;}
+	#paymentVente td:nth-child(3){word-break:break-word;}
+}

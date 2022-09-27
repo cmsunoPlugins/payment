@@ -183,8 +183,7 @@ function f_paymentDetail(f,g){
 	});
 }
 function f_del_payment(f){
-	var g=f.parentNode.firstChild;
-	jQuery(g).parent().empty().append('<input type="text" class="input color" name="col" id="col" style="width:100px;" /><span class="del" onclick="f_del_payment(this);"></span>');
+	jQuery(f).prev().val('').css({"background-color":"#fff","color":"#555"});
 }
 //
 f_load_payment();f_paymentVente();
